@@ -4,6 +4,7 @@ import Hero from "@/components/home/Hero";
 import Projects from "@/components/home/Projects";
 import Techstack from "@/components/home/Techstack";
 import Image from "next/image";
+import Footer from "@/components/common/Footer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <About/>
       <Projects/>
       <Cards/>
+      <Footer/>
     </>
   );
 }
