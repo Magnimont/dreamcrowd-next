@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased bg-[#030303] relative overflow-x-hidden ${inter.className}`}>
+      <body className={`dark antialiased bg-[#030303] relative overflow-x-hidden ${inter.className}`}>
         <div className="absolute w-screen z-50 top-0 left-0">
           <NavbarComponent />
         </div>
