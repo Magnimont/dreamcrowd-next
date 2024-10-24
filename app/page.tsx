@@ -1,5 +1,6 @@
 import About from "@/components/home/About";
 import Cards from "@/components/home/Cards";
+import Expertises from "@/components/home/Expertises";
 import Hero from "@/components/home/Hero";
 import Projects from "@/components/home/Projects";
 import Techstack from "@/components/home/Techstack";
@@ -13,6 +14,7 @@ export default function Home() {
       <About/>
       <Projects/>
       <Cards/>
+      <Expertises/>
     </>
   );
 }
