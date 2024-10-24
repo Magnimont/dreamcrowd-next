@@ -15,11 +15,11 @@ export default function Home() {
       <About/>
       <Projects/>
       <Cards/>
-<<<<<<< HEAD
-      <Footer/>
-=======
       <Expertises/>
->>>>>>> 080fe5b03d56bdcd803f3c7cb06559641e252afd
+      <Footer/>
+
+      
+
     </>
   );
 }
