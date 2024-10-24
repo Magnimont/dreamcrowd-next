@@ -39,7 +39,7 @@ export default function NavbarComponent() {
       </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex md:space-x-8 text-white font-inter">
+      <ul className="hidden md:flex md:space-x-8 text-[#999CA1] font-inter">
         <li>
           <Link href="/" className="hover:text-amber-200 transition">
             Home
@@ -69,12 +69,12 @@ export default function NavbarComponent() {
 
       {/* Get Started Button (Desktop) */}
       <div className="hidden md:block">
-        <Button variant="default">Get Started <ChevronRight/></Button>
+        <Button variant="default" className='rounded-full'>Get Started <ChevronRight/></Button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <ul className="md:hidden absolute top-16 left-0 w-full bg-black text-white font-inter space-y-4 p-4">
+        <ul className="md:hidden absolute top-16 left-0 w-full bg-black text-[#999CA1] font-inter space-y-4 p-4">
           <li>
             <Link href="/" className="block" onClick={toggleHamburger}>
               Home

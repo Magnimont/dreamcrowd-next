@@ -54,7 +54,7 @@
 //     </div>
 //   )
 // }
-"use client"
+"use client";
 import { LegacyRef, useEffect, useRef } from "react";
 
 interface Service {
@@ -131,7 +131,8 @@ const Expertises: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-[1206px] mx-auto px-5 py-20">
+    <div className="w-full max-w-[1206px] mx-auto px-5 py-20 my-4  dark:bg-[#030303] bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative">
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-[#030303] bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-2">
         Our Expertise
       </h1>
@@ -144,7 +145,7 @@ const Expertises: React.FC = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="service-card relative w-[300px] h-[260px] border border-amber-100/20 rounded-lg overflow-hidden cursor-pointer transition-all duration-500 max-md:h-[180px]"
+            className="service-card bg-black relative w-[300px] h-[260px] border border-amber-100/20 rounded-lg overflow-hidden cursor-pointer transition-all duration-500 max-md:h-[180px]"
           >
             <div className="absolute inset-[1px] rounded-lg z-20 p-3 flex flex-col">
               <div className="flex items-center justify-center h-[140px] max-md:h-[80px]">
