@@ -41,27 +41,27 @@ export default function NavbarComponent() {
       {/* Desktop Menu */}
       <ul className="hidden md:flex md:space-x-8 text-[#999CA1] font-inter">
         <li>
-          <Link href="/" className="hover:text-amber-200 transition">
+          <Link href="/" className="hover:text-white transition">
             Home
           </Link>
         </li>
         <li>
-          <Link href="#services" className="hover:text-amber-200 transition">
+          <Link href="#services" className="hover:text-white transition">
             Services
           </Link>
         </li>
         <li>
-          <Link href="#testimonials" className="hover:text-amber-200 transition">
+          <Link href="#testimonials" className="hover:text-white transition">
             Testimonials
           </Link>
         </li>
         <li>
-          <Link href="#pricing" className="hover:text-amber-200 transition">
+          <Link href="#pricing" className="hover:text-white transition">
             Pricing
           </Link>
         </li>
         <li>
-          <Link href="#faq" className="hover:text-amber-200 transition">
+          <Link href="#faq" className="hover:text-white transition">
             FAQ
           </Link>
         </li>

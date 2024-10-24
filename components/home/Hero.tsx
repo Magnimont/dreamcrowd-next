@@ -1,9 +1,11 @@
 // components/Hero.jsx
 import Image from 'next/image';
+import SplineModel from '@/components/ui/SplineModel';
 
 export default function Hero() {
   return (
     <div className="min-h-[60rem] max-w-screen-xl mx-auto text-white p-6 md:p-12 flex flex-col">
+      
       <main className="flex-grow flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter">
         <div className="lg:w-1/2 space-y-8">
           <header className="mb-2 mt-8">
@@ -46,13 +48,7 @@ export default function Hero() {
         {/* Hero Image */}
         <div className="lg:w-1/2 flex justify-center items-center relative">
           <div className="absolute w-1 h-1" style={{ boxShadow: '#9B99FF 0px 3px 460px 87px' }} />
-          <Image
-            src="/images/hero_image.png"
-            alt="3D Geometric Shape"
-            width={500}
-            height={500}
-            className="rounded-lg z-10"
-          />
+          <SplineModel />
         </div>
       </main>
 
