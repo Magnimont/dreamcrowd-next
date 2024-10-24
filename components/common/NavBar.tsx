@@ -14,7 +14,7 @@ export default function NavbarComponent() {
   };
 
   return (
-    <nav className="bg-transparent pt-5 flex justify-between items-center px-4">
+    <nav className="bg-transparent max-w-screen-xl mx-auto pt-5 flex justify-between items-center px-4">
       {/* Logo and Branding */}
       <Link href="/" className="flex items-center">
         <Image
