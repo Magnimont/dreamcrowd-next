@@ -10,9 +10,9 @@ export default function TextReveal() {
   return (
     <div className="flex items-center max-w-screen-lg mx-auto justify-center my-5 rounded-2xl w-full">
       <TextRevealCard
-      className="w-full"
+        className="w-full"
         text="You know the business"
-        revealText="I know the chemistry "
+        revealText="MAGNIMONT "
       >
         {/* <TextRevealCardTitle>
           Sometimes, you just need to see it.
