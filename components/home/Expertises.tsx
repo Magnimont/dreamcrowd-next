@@ -150,13 +150,13 @@ const Expertises: React.FC = () => {
             <div className="absolute inset-[1px] rounded-lg z-20 p-3 flex flex-col">
               <div className="flex items-center justify-center h-[140px] max-md:h-[80px]">
                 <span className="text-6xl opacity-25 max-md:text-3xl">
-                  {service.icon}
+                  {/* {service.icon} */}
                 </span>
               </div>
               <div className="px-5 flex-grow flex items-start">
                 <div className="flex gap-3">
                   <span className="text-white text-sm mt-1">
-                    {service.icon}
+                    {/* {service.icon} */}
                   </span>
                   <div>
                     <h3 className="text-lg text-white font-normal max-md:text-base">
