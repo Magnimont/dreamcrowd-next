@@ -13,7 +13,7 @@ import ContactForm from "@/components/home/Contact";
 export default function Home() {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
       <Techstack />
       <About />
       <Projects />
