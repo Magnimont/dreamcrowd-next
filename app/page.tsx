@@ -8,11 +8,12 @@ import Image from "next/image";
 import Footer from "@/components/common/Footer";
 import Reviews from "@/components/home/Reviews";
 import Faq from "@/components/home/Faq";
+import ContactForm from "@/components/home/Contact";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <Techstack />
       <About />
       <Projects />
@@ -20,6 +21,7 @@ export default function Home() {
       <Expertises />
       <Reviews />
       <Faq/>
+      <ContactForm/>
     </>
   );
 }
