@@ -1,11 +1,11 @@
 // components/Hero.jsx
-import Image from 'next/image';
-import SplineModel from '@/components/ui/SplineModel';
+import Image from "next/image";
+import SplineModel from "@/components/ui/SplineModel";
+import Spline from "@splinetool/react-spline";
 
 export default function Hero() {
   return (
     <div className="min-h-[60rem] max-w-screen-xl mx-auto text-white p-6 md:p-12 flex flex-col">
-      
       <main className="flex-grow flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter">
         <div className="lg:w-1/2 space-y-8">
           <header className="mb-2 mt-8">
@@ -29,7 +29,10 @@ export default function Hero() {
 
           {/* Hero Subtitle */}
           <p className="text-gray-400 max-w-lg text-sm md:text-base leading-relaxed">
-            At Magnimont, we blend innovation with expertise to create tailored tech solutions that drive your business forward. From digital transformation to scalable growth, we&apos;re your partner in progress.
+            At Magnimont, we blend innovation with expertise to create tailored
+            tech solutions that drive your business forward. From digital
+            transformation to scalable growth, we&apos;re your partner in
+            progress.
           </p>
 
           {/* Buttons */}
@@ -46,12 +49,38 @@ export default function Hero() {
         </div>
 
         {/* Hero Image */}
-        <div className="lg:w-1/2 flex justify-center items-center relative">
+        {/* <div className="lg:w-1/2 flex justify-center items-center relative">
           <div className="absolute w-1 h-1" style={{ boxShadow: '#9B99FF 0px 3px 460px 87px' }} />
           <SplineModel />
+        </div> */}
+        <div className="lg:w-1/2 h-[600px] relative flex items-center justify-center">
+          <div className="relative w-full max-w-2xl aspect-square">
+            {/* Glow effect */}
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full z-0"
+              style={{
+                boxShadow: "#9B99FF 0px 0px 160px 60px",
+                background: "#9B99FF",
+              }}
+            />
+
+            {/* Spline container */}
+            <div className="absolute inset-0 z-10 flex items-center justify-center">
+              <Spline
+              
+                scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  background: "transparent",
+                  position: "relative",
+                }}
+                className="flex items-center justify-center"
+              />
+            </div>
+          </div>
         </div>
       </main>
-
     </div>
   );
 }

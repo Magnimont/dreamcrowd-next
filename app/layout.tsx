@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavbarComponent from "@/components/common/NavBar";
 import { inter } from "@/lib/fonts";
+import Footer from "@/components/common/Footer";
 
 export const metadata: Metadata = {
   title: "Magnimont",
   description: "Magnimont description metatag",
-  keywords: "Magnimont, digital agency, web development, AI solutions, software",
+  keywords:
+    "Magnimont, digital agency, web development, AI solutions, software",
   authors: [{ name: "Your Name" }], // Replace with actual author names
   alternates: {
     canonical: "https://www.canonical.ie/",
@@ -49,11 +51,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`dark antialiased bg-[#030303] relative overflow-x-hidden ${inter.className}`}>
+      <body
+        className={`dark antialiased bg-[#030303] relative overflow-x-hidden ${inter.className}`}
+      >
         <div className="absolute w-screen z-50 top-0 left-0">
           <NavbarComponent />
         </div>
         {children}
+        <Footer />
       </body>
     </html>
   );
