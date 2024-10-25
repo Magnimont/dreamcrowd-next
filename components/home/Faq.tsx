@@ -47,56 +47,64 @@ export default function Faq() {
   const handleItemToggle = (value: string) => {
     setOpenItems((prev) =>
       prev.includes(value) 
-        ? [] // If clicking on already open item, close it
-        : [value] // Otherwise, open only this item
+        ? [] 
+        : [value] 
     );
-};
+  };
 
   return (
-    <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto items-start justify-between p-8 min-h-screen text-white relative">
-      <div className="md:w-1/3 mb-8 md:mb-0">
-        <h2 className="text-4xl md:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-[linear-gradient(150deg,#fff_50%,transparent_100%)]">
-          Frequently
-          <br />
-          Asked
-          <br />
-          Questions
-        </h2>
-        <div className="relative w-full h-64 md:h-72">
-          <Image
-            src={"/home/faq1.png"}
-            alt="FAQ Image"
-            fill
-            className="object-contain"
-          />
+    <div className="relative px-4 py-12 sm:px-6 lg:px-8 min-h-screen">
+      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto gap-8">
+        {/* Left Section */}
+        <div className="w-full lg:w-1/3 flex flex-col">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-[linear-gradient(150deg,#fff_50%,transparent_100%)]">
+            Frequently
+            <br />
+            Asked
+            <br />
+            Questions
+          </h2>
+          <div className="relative w-full aspect-square max-w-[300px] mx-auto lg:mx-0">
+            <Image
+              src={"/home/faq1.png"}
+              alt="FAQ Image"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Right Section */}
+        <div className="w-full lg:w-2/3">
+          <Accordion
+            type="multiple"
+            value={openItems}
+            className="w-full space-y-3 sm:space-y-4"
+          >
+            {faqItems.map((item, index) => (
+              <AccordionItem
+                key={`item-${index}`}
+                value={`item-${index}`}
+                className="border border-gray-800 rounded-lg overflow-hidden"
+              >
+                <AccordionTrigger
+                  onClick={() => handleItemToggle(`item-${index}`)}
+                  className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-left bg-muted/10 hover:bg-muted/25 transition-colors"
+                >
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-muted/10">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
-      <div className="md:w-2/3">
-        <Accordion
-          type="multiple"
-          value={openItems}
-          className="w-full space-y-4"
-        >
-          {faqItems.map((item, index) => (
-            <AccordionItem
-              key={`item-${index}`}
-              value={`item-${index}`}
-              className="border border-gray-800 rounded-lg overflow-hidden"
-            >
-              <AccordionTrigger
-                onClick={() => handleItemToggle(`item-${index}`)}
-                className="px-6 py-4 bg-muted/10 hover:bg-muted/25 transition-colors"
-              >
-                {item.question}
-              </AccordionTrigger>
-              <AccordionContent className="px-6 py-4 bg-muted/10">
-                {item.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
-      <div className="absolute top-0 -z-10 -right-8 w-48 h-48 overflow-hidden">
+
+      {/* Decorative Image */}
+      <div className="hidden sm:block absolute top-0 -z-10 right-0 w-32 sm:w-48 h-32 sm:h-48 overflow-hidden">
         <Image
           src={"/home/faq2.png"}
           alt="FAQ Image 2"
