@@ -53,7 +53,7 @@ export default function Faq() {
   };
 
   return (
-    <div className="relative px-4 py-12 sm:px-6 lg:px-8 min-h-screen">
+    <div className="relative px-4 py-12 sm:px-6 lg:px-8 min-h-[60rem]">
       <div className="flex flex-col lg:flex-row max-w-7xl mx-auto gap-8">
         {/* Left Section */}
         <div className="w-full lg:w-1/3 flex flex-col">
