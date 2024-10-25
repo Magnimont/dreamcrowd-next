@@ -9,6 +9,8 @@ import Footer from "@/components/common/Footer";
 import Reviews from "@/components/home/Reviews";
 import Faq from "@/components/home/Faq";
 import ContactForm from "@/components/home/Contact";
+import NewsLetter from "@/components/home/NewsLetter";
+import TextReveal from "@/components/home/TextReveal";
 
 export default function Home() {
   return (
@@ -20,8 +22,10 @@ export default function Home() {
       <Cards />
       <Expertises />
       <Reviews />
-      <Faq/>
-      <ContactForm/>
+      <Faq />
+      <ContactForm />
+      <NewsLetter />
+      <TextReveal/>
     </>
   );
 }

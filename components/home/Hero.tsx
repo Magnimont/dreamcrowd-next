@@ -67,7 +67,6 @@ export default function Hero() {
             {/* Spline container */}
             <div className="absolute inset-0 z-10 flex items-center justify-center">
               <Spline
-              
                 scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
                 style={{
                   width: "100%",
