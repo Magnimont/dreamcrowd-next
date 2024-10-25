@@ -14,8 +14,9 @@ export default function NavbarComponent() {
   };
 
   return (
-    <nav className="bg-transparent max-w-screen-xl mx-auto pt-5 flex justify-between items-center px-4">
+    <nav className="bg-transparent max-w-screen-xl mx-auto pt-5 flex justify-between items-center px-4 py-4">
       {/* Logo and Branding */}
+      <div className="blur-lg w-full h-full top-0 left-0 absolute bg-muted/45 -z-20"></div>
       <Link href="/" className="flex items-center">
         <Image
           width={39}
