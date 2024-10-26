@@ -134,7 +134,7 @@ export default function Hero() {
               <div
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full z-0 animate-pulse"
                 style={{
-                  boxShadow: "#9B99FF 0px 0px 160px 60px",
+                  boxShadow: "#9B99FF 0px 0px 290px 170px",
                   background: "#9B99FF",
                 }}
               />
