@@ -11,7 +11,7 @@ export default function TextReveal() {
     <div className="flex items-center max-w-screen-lg mx-auto justify-center my-5 rounded-2xl w-full">
       <TextRevealCard
         className="w-full"
-        text="You know the business"
+        text="MAGNIMONT "
         revealText="MAGNIMONT "
       >
         {/* <TextRevealCardTitle>
