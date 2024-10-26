@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function NavbarComponent() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,41 +26,63 @@ export default function NavbarComponent() {
   }, []);
 
   return (
-    <div className="fixed w-screen z-50 top-0 left-0">
-      <nav className={`max-w-screen-xl mx-auto pt-5 flex justify-between items-center px-4 py-4 transition-all duration-300 ease-in-out
+    <motion.div 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed w-screen z-50 top-0 left-0"
+    >
+      <nav className={`max-w-screen-xl mx-auto flex justify-between items-center px-4 py-4 transition-all duration-300 ease-in-out
         ${hasScrolled ? 'after:opacity-100' : 'after:opacity-0'} 
         after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-white/10 
         after:transition-opacity after:duration-300 after:ease-in-out`}>
         
         {/* Premium glass effect background with transition */}
         <div className={`absolute top-0 left-0 w-full h-full -z-20 transition-all duration-300 ease-in-out
-          ${hasScrolled ? 'opacity-100 backdrop-blur-md bg-white/[0.02]' : 'opacity-0 blur-none bg-transparent'}
+          ${hasScrolled ? 'opacity-100 backdrop-blur-md bg-[#00000080]' : 'opacity-0 blur-none bg-transparent'}
           before:absolute before:w-full before:h-full before:bg-gradient-to-b before:from-white/[0.08] before:to-white/[0.02]`}>
         </div>
         
-        <Link href="/" className="flex items-center">
-          <Image
-            width={39}
-            height={35}
-            src="/images/logo.png"
-            alt="Magnimont Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold font-calsans text-white ml-2">
-            Magnimont
-          </span>
-        </Link>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex items-center"
+        >
+          <Link href="/" className="flex items-center">
+            <Image
+              width={39}
+              height={35}
+              src="/images/logo.png"
+              alt="Magnimont Logo"
+            />
+            <span className="self-center whitespace-nowrap text-xl font-semibold font-calsans text-white ml-2">
+              Magnimont
+            </span>
+          </Link>
+        </motion.div>
 
         {/* Mobile Hamburger Button */}
-        <div className="md:hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="md:hidden"
+        >
           <button onClick={toggleHamburger} className="focus:outline-none">
             <span className="block w-6 h-0.5 bg-white mb-1"></span>
             <span className="block w-6 h-0.5 bg-white mb-1"></span>
             <span className="block w-6 h-0.5 bg-white"></span>
           </button>
-        </div>
+        </motion.div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex md:space-x-8 text-[#999CA1] font-inter">
+        <motion.ul 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="hidden md:flex md:space-x-8 text-[#999CA1] font-inter"
+        >
           <li>
             <Link href="/" className="hover:text-white transition">
               Home
@@ -85,19 +108,30 @@ export default function NavbarComponent() {
               FAQ
             </Link>
           </li>
-        </ul>
+        </motion.ul>
 
         {/* Get Started Button (Desktop) */}
-        <div className="hidden md:block">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="hidden md:block"
+        >
           <Button variant="default" className="rounded-full">
             Get Started <ChevronRight />
           </Button>
-        </div>
+        </motion.div>
 
         {/* Mobile Menu with glass effect */}
         {isOpen && (
-          <ul className="md:hidden absolute top-16 left-0 w-full backdrop-blur-lg bg-black/40 text-[#999CA1] font-inter space-y-4 p-4
-              border-t border-white/[0.08] shadow-lg">
+          <motion.ul 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden absolute top-16 left-0 w-full backdrop-blur-lg bg-black/40 text-[#999CA1] font-inter space-y-4 p-4
+              border-t border-white/[0.08] shadow-lg"
+          >
             <li>
               <Link href="/" className="block" onClick={toggleHamburger}>
                 Home
@@ -128,9 +162,9 @@ export default function NavbarComponent() {
                 Get Started <ChevronRight />
               </Button>
             </li>
-          </ul>
+          </motion.ul>
         )}
       </nav>
-    </div>
+    </motion.div>
   );
 }
