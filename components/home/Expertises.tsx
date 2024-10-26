@@ -1,59 +1,3 @@
-// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-// import Image from "next/image"
-
-// const expertiseData = [
-//   {
-//     title: "Website Development",
-//     description: "Expertly coded websites tailored to your business needs.",
-//   },
-//   {
-//     title: "UI/UX Design",
-//     description: "Intuitive interfaces focused on exceptional user experiences.",
-//   },
-//   {
-//     title: "AI Software Development",
-//     description: "Cutting-edge AI integrations to drive efficiency and insights.",
-//   },
-//   {
-//     title: "Custom Software",
-//     description: "Innovative custom software aligning with your unique requirements.",
-//   },
-//   {
-//     title: "Branding & Graphics",
-//     description: "Visually compelling assets that reinforce your brand identity.",
-//   },
-//   {
-//     title: "Custom Scripts",
-//     description: "Tailored automation scripts to streamline your workflows.",
-//   },
-// ]
-
-// export default function Component() {
-//   return (
-//     <div className="container mx-auto px-4 py-16 text-white">
-//       <h2 className="text-4xl font-bold text-center mb-2">Our Expertise</h2>
-//       <p className="text-xl text-center text-gray-400 mb-12">Innovative solutions</p>
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//         {expertiseData.map((item, index) => (
-//           <Card key={index} className="bg-gray-800 border-gray-700 hover:bg-gray-700 transition-colors duration-300">
-//             <CardHeader>
-//             <Image
-//               src={"/placeholder.svg"}
-//               alt={`Project ${index + 1}`}
-//               width={300}
-//               height={300}
-//               className="w-full h-auto"
-//             />              <CardTitle className="text-xl font-semibold">{item.title}</CardTitle>
-//             </CardHeader>
-//             <CardContent>
-//               <p className="text-gray-400">{item.description}</p>
-//             </CardContent>
-//           </Card>
-//         ))}
-//       </div>
-//     </div>
-//   )
-// }
 "use client";
 import { LegacyRef, useEffect, useRef } from "react";
 
@@ -72,7 +16,6 @@ const Expertises: React.FC = () => {
       const cards = cardsRef.current.getElementsByClassName("service-card");
       for (const card of cards) {
         const element = card as HTMLElement;
-
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -101,26 +44,22 @@ const Expertises: React.FC = () => {
     },
     {
       title: "UI/UX Design",
-      description:
-        "Intuitive interfaces focused on exceptional user experiences.",
+      description: "Intuitive interfaces focused on exceptional user experiences.",
       icon: "🎨",
     },
     {
       title: "AI Software Development",
-      description:
-        "Cutting-edge AI integrations to drive efficiency and insights.",
+      description: "Cutting-edge AI integrations to drive efficiency and insights.",
       icon: "🤖",
     },
     {
       title: "Custom Software",
-      description:
-        "Innovative custom software aligning with your unique requirements.",
+      description: "Innovative custom software aligning with your unique requirements.",
       icon: "💻",
     },
     {
       title: "Branding & Graphics",
-      description:
-        "Visually compelling assets that reinforce your brand identity.",
+      description: "Visually compelling assets that reinforce your brand identity.",
       icon: "✨",
     },
     {
@@ -131,9 +70,8 @@ const Expertises: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-[1206px] mx-auto px-5 py-20 my-4  dark:bg-[#030303] bg-white  relative"> 
-     {/*  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] */}
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-[#030303] bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <div className="w-full max-w-[1206px] mx-auto px-5 py-20 my-4 bg-[#030303]">
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center"></div>
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-2">
         Our Expertise
       </h1>
@@ -141,35 +79,31 @@ const Expertises: React.FC = () => {
 
       <div
         ref={cardsRef}
-        className="flex flex-wrap justify-center gap-8 relative hover:text-black"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative"
       >
         {services.map((service, index) => (
           <div
-        key={index}
-        className="service-card bg-black relative w-[300px] h-[260px] border border-amber-100/20 rounded-lg overflow-hidden cursor-pointer transition-all duration-500 max-md:h-[180px] hover:bg-white hover:text-black"
+            key={index}
+            className="service-card group bg-black relative w-full h-[200px] border border-amber-100/20 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:bg-white"
           >
-        <div className="absolute inset-[1px] rounded-lg z-20 p-3 flex flex-col">
-          <div className="flex items-center justify-center h-[140px] max-md:h-[80px]">
-            <span className="text-6xl opacity-25 max-md:text-3xl">
-          {/* {service.icon} */}
-            </span>
-          </div>
-          <div className="px-5 flex-grow flex items-start">
-            <div className="flex gap-3">
-          <span className="text-white text-sm mt-1 hover:text-black">
-            {/* {service.icon} */}
-          </span>
-          <div>
-            <h3 className="text-lg text-white font-normal max-md:text-base hover:text-black">
-              {service.title}
-            </h3>
-            <h4 className="text-sm text-white/50 mt-2 max-md:text-xs max-md:mt-1 hover:text-black">
-              {service.description}
-            </h4>
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/30 group-hover:opacity-0 transition-opacity duration-300"></div>
+            
+            <div className="absolute inset-[1px] rounded-lg z-20 p-6 flex flex-col justify-between group-hover:bg-white transition-colors duration-300">
+              <div className="flex items-start gap-4">
+                <h3 className="text-xl font-medium text-white group-hover:text-black transition-colors duration-300">
+                  {service.title}
+                </h3>
+              </div>
+              
+              <p className="text-sm text-gray-400 group-hover:text-gray-600 transition-colors duration-300 mt-2">
+                {service.description}
+              </p>
             </div>
-          </div>
-        </div>
+
+            {/* Hover effect border */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20"></div>
+            </div>
           </div>
         ))}
       </div>
