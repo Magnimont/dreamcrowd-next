@@ -71,7 +71,7 @@ export default function Hero() {
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-8xl font-medium leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-medium leading-tight"
           >
             <span className="bg-gradient-to-r from-white to-blue-300 text-transparent bg-clip-text animate-gradient">
               Software
