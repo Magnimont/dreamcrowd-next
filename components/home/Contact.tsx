@@ -1,12 +1,10 @@
-"use client";
-
-import { useState } from "react";
-import { FiArrowUpRight } from "react-icons/fi";
+"use client"
+import { useState, useEffect } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import Image from "next/image";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +13,41 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
+  const [greeting, setGreeting] = useState("Get in touch");
+
+  const updateGreeting = () => {
+    const now = new Date();
+    const hour = now.getHours();
+    const day = now.getDay(); // 0 is Sunday, 6 is Saturday
+
+    // Check if it's weekend
+    if (day === 0 || day === 6) {
+      setGreeting("Get in touch this Weekend");
+      return;
+    }
+
+    // Time-based greetings
+    if (hour >= 5 && hour < 12) {
+      setGreeting("Get in touch this Morning");
+    } else if (hour >= 12 && hour < 17) {
+      setGreeting("Get in touch this Afternoon");
+    } else if (hour >= 17 && hour < 22) {
+      setGreeting("Get in touch this Evening");
+    } else {
+      setGreeting("Get in touch Tonight");
+    }
+  };
+
+  useEffect(() => {
+    // Initial update
+    updateGreeting();
+
+    // Update greeting every minute
+    const interval = setInterval(updateGreeting, 60000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,7 +65,7 @@ export default function ContactForm() {
     <div className="min-h-[50rem] flex justify-center p-4 max-w-screen-2xl mx-auto">
       <div className="w-full max-w-6xl">
         <h1 className="text-6xl md:text-7xl font-medium mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-transparent">
-          Get in touch
+          {greeting}
         </h1>
         <div className="grid md:grid-cols-2 gap-8 text-lg">
           <div className="space-y-8">
@@ -48,9 +81,7 @@ export default function ContactForm() {
                   className="w-full py-8 text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
                 >
                   <span className="flex items-center text-2xl">
-                    <Image
-                      width={100}
-                      height={100}
+                    <img
                       src="/home/fiver.png"
                       alt="Fiverr"
                       className="w-8 h-8 mr-2"
@@ -63,9 +94,7 @@ export default function ContactForm() {
                   className="w-full py-8 text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
                 >
                   <span className="flex items-center text-2xl">
-                    <Image
-                      width={100}
-                      height={100}
+                    <img
                       src="/home/upwork.png"
                       alt="Upwork"
                       className="w-8 h-8 mr-2"
@@ -83,7 +112,7 @@ export default function ContactForm() {
                   variant="ghost"
                   className="w-full bg-transparent hover:bg-transparent text-white"
                 >
-                  BOOK US FOR CONSULTATION <FiArrowUpRight />
+                  BOOK US FOR CONSULTATION <ArrowUpRight className="inline ml-2" />
                 </Button>
               </CardContent>
             </Card>
