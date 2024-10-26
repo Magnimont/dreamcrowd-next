@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -81,7 +82,9 @@ export default function ContactForm() {
                   className="w-full py-8 text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
                 >
                   <span className="flex items-center text-2xl">
-                    <img
+                    <Image
+                      width={30}
+                      height={30}
                       src="/home/fiver.png"
                       alt="Fiverr"
                       className="w-8 h-8 mr-2"
@@ -94,7 +97,9 @@ export default function ContactForm() {
                   className="w-full py-8 text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
                 >
                   <span className="flex items-center text-2xl">
-                    <img
+                    <Image
+                      width={30}
+                      height={30}
                       src="/home/upwork.png"
                       alt="Upwork"
                       className="w-8 h-8 mr-2"
@@ -112,7 +117,8 @@ export default function ContactForm() {
                   variant="ghost"
                   className="w-full bg-transparent hover:bg-transparent text-white"
                 >
-                  BOOK US FOR CONSULTATION <ArrowUpRight className="inline ml-2" />
+                  BOOK US FOR CONSULTATION{" "}
+                  <ArrowUpRight className="inline ml-2" />
                 </Button>
               </CardContent>
             </Card>
