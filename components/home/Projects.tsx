@@ -5,7 +5,7 @@ export default function Projects() {
   const placeholderImages = Array(8).fill('/placeholder.svg')
 
   return (
-    <div className="text-white min-h-[60rem] flex flex-col items-center justify-center py-16 px-4">
+    <div className="text-white min-h-[40rem] flex flex-col items-center justify-center py-16 px-4">
       <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Projects</h2>
       <p className="text-gray-400 text-center max-w-2xl mb-12">
         Lorem ipsum dolor sit amet consectetur adipisicing elit semper dalar elementum tempus hac tellus libero accumsan.
@@ -26,7 +26,7 @@ export default function Projects() {
       </div>
 
       <Button variant="secondary" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-2 rounded-full">
-        Follow us
+        View All
       </Button>
     </div>
   )
