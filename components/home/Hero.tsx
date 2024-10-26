@@ -1,9 +1,23 @@
-// components/Hero.jsx
+"use client"
 import Image from "next/image";
-import SplineModel from "@/components/ui/SplineModel";
 import Spline from "@splinetool/react-spline";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileOrTablet(window.innerWidth < 1024);
+    };
+    // Initial check
+    handleResize();
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Clean up
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="min-h-[40rem] max-w-screen-xl mx-auto text-white p-6 md:p-12 flex flex-col">
       <main className="flex-grow flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter">
@@ -48,36 +62,48 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hero Image */}
-        {/* <div className="lg:w-1/2 flex justify-center items-center relative">
-          <div className="absolute w-1 h-1" style={{ boxShadow: '#9B99FF 0px 3px 460px 87px' }} />
-          <SplineModel />
-        </div> */}
+        {/* Hero Media */}
         <div className="lg:w-1/2 h-[600px] relative flex items-center justify-center">
-          <div className="relative w-full max-w-2xl aspect-square">
-            {/* Glow effect */}
-            <div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full z-0"
+          {isMobileOrTablet ? (
+            // Video for mobile/tablet view
+            <video
+              src="home/hexagons.mp4" // Replace with the path to your video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
               style={{
-                boxShadow: "#9B99FF 0px 0px 160px 60px",
-                background: "#9B99FF",
+                background: "transparent",
               }}
             />
-
-            {/* Spline container */}
-            <div className="absolute inset-0 z-10 flex items-center justify-center">
-              <Spline
-                scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
+          ) : (
+            // Spline model for desktop view
+            <div className="relative w-full max-w-2xl aspect-square">
+              {/* Glow effect */}
+              <div
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full z-0"
                 style={{
-                  width: "100%",
-                  height: "100%",
-                  background: "transparent",
-                  position: "relative",
+                  boxShadow: "#9B99FF 0px 0px 160px 60px",
+                  background: "#9B99FF",
                 }}
-                className="flex items-center justify-center"
               />
+
+              {/* Spline container */}
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
+                <Spline
+                  scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    background: "transparent",
+                    position: "relative",
+                  }}
+                  className="flex items-center justify-center"
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </main>
     </div>
