@@ -161,19 +161,14 @@ const Hero: React.FC = () => {
           ) : (
             <div
               ref={splineContainerRef}
-              className="relative w-full max-w-2xl aspect-square"
+              className="relative w-full max-w-2xl"
             >
-              <div className="absolute inset-0 z-10 flex items-center justify-center">
                 <Spline
-                  scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
+                  scene="https://prod.spline.design/qAeSAPc3a3AhaGlf/scene.splinecode"
                   onLoad={onSplineLoad}
                   style={{
                     width: "100%",
                     height: "100%",
-                    visibility: isSplineLoaded ? "visible" : "hidden",
-                    background: "transparent",
-                    transform: "scale(0.5)",
-                    transformOrigin: "center center",
                   }}
                   className="flex items-center justify-center w-full"
                 />
@@ -183,7 +178,6 @@ const Hero: React.FC = () => {
                   </div>
                 )}
               </div>
-            </div>
           )}
         </div>
       </main>
