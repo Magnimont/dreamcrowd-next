@@ -3,19 +3,12 @@ import { Twitter, Github, Linkedin, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   const footerLinks = {
-    Documentation: [
-      { name: 'Getting Started', href: '#' },
-      { name: 'API Reference', href: '#' },
-      { name: 'Integrations', href: '#' },
-      { name: 'Examples', href: '#' },
-      { name: 'SDKs', href: '#' },
+    Magnimont: [
+      { name: 'Host', href: 'https://host.magnimont.com/' },
+      { name: 'Forums', href: 'https://forum.magnimont.com/' },
+
     ],
     Resources: [
-      { name: 'Changelog', href: '#' },
-      { name: 'Pricing', href: '#' },
-      { name: 'Security', href: '#' },
-      { name: 'SOC 2', href: '#' },
-      { name: 'GDPR', href: '#' },
       { name: 'Status', href: '#' },
       { name: 'Brand', href: '#' },
     ],
@@ -24,24 +17,16 @@ const Footer = () => {
       { name: 'Blog', href: '#' },
       { name: 'Careers', href: '/Careers' },
       { name: 'Contact', href: '#' },
-      { name: 'Customers', href: '#' },
-      { name: 'Philosophy', href: '#' },
     ],
     Handbook: [
       { name: 'Why we exist', href: '#' },
       { name: 'How we work', href: '#' },
-      { name: 'Engineering', href: '#' },
-      { name: 'Design', href: '#' },
       { name: 'Support', href: '#' },
-      { name: 'Marketing', href: '#' },
     ],
     Legal: [
-      { name: 'Acceptable Use', href: '#' },
       { name: 'Cookie Policy', href: '#' },
       { name: 'Privacy Policy', href: '/Privacy-policy' },
       { name: 'Terms of Service', href: '/Terms-of-Service' },
-      { name: 'Subprocessors', href: '#' },
-      { name: 'DPA', href: '#' },
     ],
   };
 
@@ -55,21 +40,21 @@ const Footer = () => {
     },
     { 
       name: 'GitHub', 
-      href: '#', 
+      href: 'https://github.com/Magnimont', 
       icon: <div className="flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 hover:bg-zinc-800">
               <Github size={16} />
             </div>
     },
     { 
       name: 'LinkedIn', 
-      href: '#', 
+      href: 'https://www.linkedin.com/company/magnimont/', 
       icon: <div className="flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 hover:bg-zinc-800">
               <Linkedin size={16} />
             </div>
     },
     { 
       name: 'Discord', 
-      href: '#', 
+      href: 'https://discord.gg/magnimont-876113814314164256', 
       icon: <div className="flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 hover:bg-zinc-800">
               <MessageCircle size={16} />
             </div>
