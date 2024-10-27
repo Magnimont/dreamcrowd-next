@@ -147,8 +147,9 @@ export default function Hero() {
                     background: "transparent",
                     position: "relative",
                   }}
-                  className="flex items-center justify-center"
+                  className="flex items-center justify-center w-full scale-[.25] sm:scale-[.35] lg:scale-[.5] md:justify-start"
                 />
+                {/* <iframe src='https://my.spline.design/hexagons-38acc934f2f8af861e54901b7ab6a967/' frameborder='0' width='100%' height='100%'></iframe> */}
               </div>
             </div>
           )}
