@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
             >
               <div className="absolute inset-0 z-10 flex items-center justify-center">
                 <Spline
-                  scene="https://prod.spline.design/qAeSAPc3a3AhaGlf/scene.splinecode"
+                  scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
                   onLoad={onSplineLoad}
                   style={{
                     width: "100%",
