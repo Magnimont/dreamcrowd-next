@@ -122,7 +122,7 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
         {/* Hero Media - Moved to top for mobile */}
-        <div className="w-full h-2/4 md:h-full md:w-1/2 flex items-center justify-center relative -z-10 max-h-[17rem] pt-24 lg:pt-0 lg:max-h-[25rem]">
+        <div className="w-full h-2/4 md:h-full md:w-1/2 flex items-center justify-center relative -z-10 max-h-[17rem] pt-24 lg:pt-0 lg:max-h-[50rem]">
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full z-0 animate-pulse"
             style={{
