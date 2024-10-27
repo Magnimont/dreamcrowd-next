@@ -6,23 +6,6 @@ import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Application } from "@splinetool/runtime";
 
-// Define types for variants
-interface Variants {
-  hidden: {
-    opacity: number;
-    y?: number;
-  };
-  visible: {
-    opacity: number;
-    y?: number;
-    transition?: {
-      duration?: number;
-      ease?: string;
-      staggerChildren?: number;
-      delayChildren?: number;
-    };
-  };
-}
 
 const Hero: React.FC = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState<boolean>(false);
@@ -161,7 +144,7 @@ const Hero: React.FC = () => {
           ) : (
             <div
               ref={splineContainerRef}
-              className="relative w-full max-w-2xl"
+              className="absolute h-full w-full max-w-2xl"
             >
                 <Spline
                   scene="https://prod.spline.design/qAeSAPc3a3AhaGlf/scene.splinecode"
@@ -170,7 +153,7 @@ const Hero: React.FC = () => {
                     width: "100%",
                     height: "100%",
                   }}
-                  className="flex items-center justify-center w-full"
+                  className="flex items-center justify-center w-full scale-[.25] sm:scale-[.35] lg:scale-[.5]"
                 />
                 {!isSplineLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center">
