@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import Spline from "@splinetool/react-spline";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Application } from "@splinetool/runtime";
 
 const Hero: React.FC = () => {
@@ -63,9 +63,35 @@ const Hero: React.FC = () => {
       },
     },
   };
+  const LoadingAnimation = () => (
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="relative">
+        {/* Glowing background similar to your existing design */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full"
+          style={{
+            boxShadow: "#9B99FF 0px 0px 150px 90px",
+            background: "#9B99FF",
+          }}
+        />
+        {/* Loading circles animation */}
+        <div className="relative flex gap-2">
+          {[0, 1, 2].map((index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 bg-white rounded-full animate-bounce`}
+              style={{
+                animationDelay: `${index * 0.2}s`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="min-h-[40rem] max-w-screen-xl mx-auto text-white p-6 md:p-12 flex flex-col">
+    <div className="min-h-[40rem] max-w-screen-2xl mx-auto text-white p-6 md:p-12 flex flex-col">
       <main className="flex-grow flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter max-h-[50rem]">
         {/* Content Section */}
         <motion.div
@@ -122,7 +148,8 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
         {/* Hero Media - Moved to top for mobile */}
-        <div className="w-full h-2/4 md:h-full md:w-1/2 flex items-center justify-center relative -z-10 max-h-[17rem] pt-24 lg:pt-0 lg:max-h-[50rem]">
+        {/* Hero Media with Loading State */}
+        <div className="w-full h-2/4 md:h-full md:w-1/2 flex items-center justify-center relative -z-10 max-h-[17rem] pt-24 lg:pt-0 lg:max-h-[50rem] lg:min-h-[50rem]">
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full z-0 animate-pulse"
             style={{
@@ -131,11 +158,22 @@ const Hero: React.FC = () => {
             }}
           />
 
-          <Spline
-            className="w-full flex scale-[.25] sm:scale-[.35] lg:scale-[.5] items-center justify-center"
-            style={{ overflow: "visible" }}
-            scene="https://prod.spline.design/pvM5sSiYV2ivWraz/scene.splinecode"
-          />
+          <AnimatePresence>
+            {!isSplineLoaded && <LoadingAnimation />}
+          </AnimatePresence>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isSplineLoaded ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Spline
+              className="w-full flex scale-[.25] sm:scale-[.35] lg:scale-[.5] items-center justify-center"
+              style={{ overflow: "visible" }}
+              scene="https://prod.spline.design/pvM5sSiYV2ivWraz/scene.splinecode"
+              onLoad={onSplineLoad}
+            />
+          </motion.div>
         </div>
       </main>
     </div>
