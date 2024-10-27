@@ -130,16 +130,17 @@ export default function Hero() {
               />
             </motion.div>
           ) : (
-            <div className="relative w-full max-w-2xl aspect-square">
+            // <div className="relative w-full max-w-2xl aspect-square">
+            <div className="w-full h-2/4 md:h-full md:w-3/5 flex items-center justify-center relative -z-10">
               <div
-                // className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full z-0 animate-pulse"
-                className="w-full h-2/4 md:h-full md:w-3/5 flex items-center justify-center relative -z-10"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full z-0 animate-pulse"
+                // className="w-full h-2/4 md:h-full md:w-3/5 flex items-center justify-center relative -z-10"
                 style={{
                   boxShadow: "#9B99FF 0px 0px 290px 170px",
                   background: "#9B99FF",
                 }}
               />
-              <div className="absolute inset-0 z-10 flex items-center justify-center">
+              {/* <div className="absolute inset-0 z-10 flex items-center justify-center"> */}
                 <Spline
                   scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
                   style={{
@@ -151,7 +152,7 @@ export default function Hero() {
                   className="flex items-center justify-center w-full scale-[.25] sm:scale-[.35] lg:scale-[.5] md:justify-start"
                 />
                 {/* <iframe src='https://my.spline.design/hexagons-38acc934f2f8af861e54901b7ab6a967/' frameborder='0' width='100%' height='100%'></iframe> */}
-              </div>
+              {/* </div> */}
             </div>
           )}
         </div>
