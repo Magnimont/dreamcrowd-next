@@ -6,7 +6,6 @@ import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Application } from "@splinetool/runtime";
 
-
 const Hero: React.FC = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState<boolean>(false);
   const splineContainerRef = useRef<HTMLDivElement>(null);
@@ -67,7 +66,7 @@ const Hero: React.FC = () => {
 
   return (
     <div className="min-h-[40rem] max-w-screen-xl mx-auto text-white p-6 md:p-12 flex flex-col">
-      <main className="flex-grow flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter">
+      <main className="flex-grow flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter max-h-[50rem]">
         {/* Content Section */}
         <motion.div
           variants={containerVariants}
@@ -85,7 +84,7 @@ const Hero: React.FC = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-medium leading-tight"
+            className="text-5xl md:text-6xl lg:text-8xl font-medium leading-tight"
           >
             <span className="bg-gradient-to-r from-white to-blue-300 text-transparent bg-clip-text animate-gradient">
               Software
@@ -123,50 +122,24 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
         {/* Hero Media - Moved to top for mobile */}
-        <div className="w-full lg:w-1/2 h-[400px] lg:h-[600px] relative flex items-center justify-center">
-          {isMobileOrTablet ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="w-full h-full"
-            >
-              <video
-                src="home/hexagons.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover animate-fade-in"
-                style={{ background: "transparent" }}
-              />
-            </motion.div>
-          ) : (
-            <div
-              ref={splineContainerRef}
-              className="absolute h-full w-full max-w-2xl"
-            >
-                <Spline
-                  scene="https://prod.spline.design/qAeSAPc3a3AhaGlf/scene.splinecode"
-                  onLoad={onSplineLoad}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                  className="flex items-center justify-center w-full scale-[.25] sm:scale-[.35] lg:scale-[.5]"
-                />
-                {!isSplineLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-                  </div>
-                )}
-              </div>
-          )}
+        <div className="w-full h-2/4 md:h-full md:w-1/2 flex items-center justify-center relative -z-10 max-h-[17rem] pt-24 lg:pt-0 lg:max-h-[25rem]">
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full z-0 animate-pulse"
+            style={{
+              boxShadow: "#9B99FF 0px 0px 290px 170px",
+              background: "#9B99FF",
+            }}
+          />
+
+          <Spline
+            className="w-full flex scale-[.25] sm:scale-[.35] lg:scale-[.5] items-center justify-center"
+            style={{ overflow: "visible" }}
+            scene="https://prod.spline.design/pvM5sSiYV2ivWraz/scene.splinecode"
+          />
         </div>
       </main>
     </div>
   );
 };
 
-
-export default Hero
+export default Hero;
