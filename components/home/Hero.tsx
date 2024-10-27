@@ -170,7 +170,7 @@ const Hero: React.FC = () => {
             <Spline
               className="w-full flex scale-[.25] sm:scale-[.35] lg:scale-[.5] items-center justify-center"
               style={{ overflow: "visible" }}
-              scene="https://prod.spline.design/pvM5sSiYV2ivWraz/scene.splinecode"
+              scene="https://prod.spline.design/ZiqyYsBzgvZY6PTk/scene.splinecode"
               onLoad={onSplineLoad}
             />
           </motion.div>
