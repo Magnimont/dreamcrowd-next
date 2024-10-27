@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
-import Spline from "@splinetool/react-spline";
+// import Spline from "@splinetool/react-spline";
+import Spline from '@splinetool/react-spline/next';
+
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
@@ -132,23 +134,24 @@ export default function Hero() {
           ) : (
             // <div className="relative w-full max-w-2xl aspect-square">
             <div className="w-full h-2/4 md:h-full md:w-3/5 flex items-center justify-center relative -z-10">
-              <div
+              {/* <div
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full z-0 animate-pulse"
                 // className="w-full h-2/4 md:h-full md:w-3/5 flex items-center justify-center relative -z-10"
                 style={{
                   boxShadow: "#9B99FF 0px 0px 290px 170px",
                   background: "#9B99FF",
                 }}
-              />
+              /> */}
               {/* <div className="absolute inset-0 z-10 flex items-center justify-center"> */}
                 <Spline
-                  scene="https://prod.spline.design/o76QGK9E7uoqyn61/scene.splinecode"
+                  scene="https://prod.spline.design/qAeSAPc3a3AhaGlf/scene.splinecode"
                   style={{
                     width: "100%",
                     height: "100%",
                     background: "transparent",
                     position: "relative",
                   }}
+                  
                   className="flex items-center justify-center w-full scale-[.25] sm:scale-[.35] lg:scale-[.5] md:justify-start"
                 />
                 {/* <iframe src='https://my.spline.design/hexagons-38acc934f2f8af861e54901b7ab6a967/' frameborder='0' width='100%' height='100%'></iframe> */}
