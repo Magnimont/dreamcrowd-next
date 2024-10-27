@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import Spline from "@splinetool/react-spline/next";
+import Spline from "@splinetool/react-spline";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
