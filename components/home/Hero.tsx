@@ -173,8 +173,9 @@ const Hero: React.FC = () => {
               style={{ overflow: "visible" }}
               // scene="https://prod.spline.design/ZiqyYsBzgvZY6PTk/scene.splinecode"
               // scene="https://prod.spline.design/5km77ydj1V7-CpvQ/scene.splinecode"
-              scene="https://prod.spline.design/hzePL2w2MjAF8Zrh/scene.splinecode"
+              // scene="https://prod.spline.design/hzePL2w2MjAF8Zrh/scene.splinecode"
               // scene="https://prod.spline.design/O4iS6mAToF3lWakx/scene.splinecode"
+              scene="https://prod.spline.design/nw5RbNtndDYfXb8N/scene.splinecode"
               onLoad={onSplineLoad}
             />
           </motion.div>
