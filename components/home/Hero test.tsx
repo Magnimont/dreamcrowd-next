@@ -1,23 +1,53 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import Spline from "@splinetool/react-spline";
-import { Button } from "../ui/button";
+import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Application } from "@splinetool/runtime";
+import { AnimatePresence, motion, Variants } from "framer-motion";
+import { Button } from "../ui/button";
+
+// Dynamically import the 3D scene component with no SSR
+const DynamicScene = dynamic(() => import('../Scene'), {
+  ssr: false,
+  loading: () => <LoadingAnimation />
+});
+
+// LoadingAnimation Component
+const LoadingAnimation: React.FC<{ delayFactors?: number[] }> = ({ 
+  delayFactors = [0, 0.2, 0.4] 
+}) => (
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="relative">
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full"
+        style={{
+          boxShadow: "#9B99FF 0px 0px 150px 90px",
+          background: "#9B99FF",
+        }}
+      />
+      <div className="relative flex gap-2">
+        {delayFactors.map((delay, index) => (
+          <div
+            key={index}
+            className="w-3 h-3 bg-white rounded-full animate-bounce"
+            style={{
+              animationDelay: `${delay}s`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
 const Hero: React.FC = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState<boolean>(false);
-  const splineContainerRef = useRef<HTMLDivElement>(null);
-  const [isSplineLoaded, setIsSplineLoaded] = useState<boolean>(false);
+  const [isModelLoaded, setIsModelLoaded] = useState<boolean>(false);
 
-  // Optimize performance by debouncing resize handler
   useEffect(() => {
     const handleResize = (): void => {
       setIsMobileOrTablet(window.innerWidth < 1024);
     };
 
-    // Debounce with requestAnimationFrame for better performance
     let frameId: number;
     const debouncedResize = (): void => {
       cancelAnimationFrame(frameId);
@@ -32,16 +62,7 @@ const Hero: React.FC = () => {
     };
   }, []);
 
-  // Handle Spline load
-  const onSplineLoad = (spline: Application): void => {
-    setIsSplineLoaded(true);
-    // Optimize scene after load
-    if (spline) {
-      spline.setZoom(0.8);
-    }
-  };
-
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -52,7 +73,7 @@ const Hero: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -63,32 +84,6 @@ const Hero: React.FC = () => {
       },
     },
   };
-  const LoadingAnimation = () => (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="relative">
-        {/* Glowing background similar to your existing design */}
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full"
-          style={{
-            boxShadow: "#9B99FF 0px 0px 150px 90px",
-            background: "#9B99FF",
-          }}
-        />
-        {/* Loading circles animation */}
-        <div className="relative flex gap-2">
-          {[0, 1, 2].map((index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 bg-white rounded-full animate-bounce`}
-              style={{
-                animationDelay: `${index * 0.2}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <div className="min-h-[40rem] max-w-screen-2xl mx-auto text-white p-6 md:p-12 flex flex-col">
@@ -103,7 +98,7 @@ const Hero: React.FC = () => {
           <motion.header variants={itemVariants} className="mb-2 mt-8">
             <button className="rounded-full p-[1px] bg-gradient-to-r to-blue-700 from-purple-600 transform transition-transform hover:scale-105 animate-shimmer">
               <span className="bg-[#030303] flex flex-row gap-1 items-center justify-center text-xs md:text-sm rounded-full px-4 py-1.5 font-medium hover:bg-opacity-80 transition-colors">
-                Magnimont V2 <ChevronRight size={"16"} />
+                Magnimont V2 <ChevronRight size={16} />
               </span>
             </button>
           </motion.header>
@@ -140,15 +135,15 @@ const Hero: React.FC = () => {
             </Button>
 
             <Button
-              variant={"ghost"}
+              variant="ghost"
               className="w-full lg:w-auto py-7 rounded-full bg-gradient-to-r flex flex-row items-center justify-center bg-[#030303] px-7 text-sm md:text-base font-medium hover:bg-opacity-80 transition-all duration-300 hover:scale-105"
             >
               Forums <ChevronRight />
             </Button>
           </motion.div>
         </motion.div>
-        {/* Hero Media - Moved to top for mobile */}
-        {/* Hero Media with Loading State */}
+
+        {/* Hero Media Section */}
         <div className="w-full h-2/4 md:h-full flex items-center justify-center relative -z-10 max-h-[17rem] pt-64 lg:pt-0 lg:max-h-[50rem] lg:min-h-[50rem]">
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[0.0000001] h-[0.0000001] rounded-full animate-pulse -z-10"
@@ -159,24 +154,16 @@ const Hero: React.FC = () => {
           />
 
           <AnimatePresence>
-            {!isSplineLoaded && <LoadingAnimation />}
+            {!isModelLoaded && <LoadingAnimation />}
           </AnimatePresence>
 
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: isSplineLoaded ? 1 : 0 }}
+            animate={{ opacity: isModelLoaded ? 1 : 0 }}
             transition={{ duration: 0.5 }}
-            className="max-h-[40rem] flex justify-center items-center overflow-hidden"
+            className="max-h-[40rem] flex justify-center items-center overflow-hidden w-full h-full"
           >
-            <Spline
-              className="w-full flex items-center justify-center md:scale-75"
-              style={{ overflow: "visible" }}
-              // scene="https://prod.spline.design/ZiqyYsBzgvZY6PTk/scene.splinecode"
-              // scene="https://prod.spline.design/5km77ydj1V7-CpvQ/scene.splinecode"
-              scene="https://prod.spline.design/hzePL2w2MjAF8Zrh/scene.splinecode"
-              // scene="https://prod.spline.design/O4iS6mAToF3lWakx/scene.splinecode"
-              onLoad={onSplineLoad}
-            />
+            <DynamicScene onLoad={() => setIsModelLoaded(true)} />
           </motion.div>
         </div>
       </main>

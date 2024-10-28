@@ -1,7 +1,7 @@
 import About from "@/components/home/About";
 import Cards from "@/components/home/Cards";
 import Expertises from "@/components/home/Expertises";
-import Hero from "@/components/home/Hero";
+import Hero from "@/components/home/Hero test";
 import Projects from "@/components/home/Projects";
 import Techstack from "@/components/home/Techstack";
 import Image from "next/image";
