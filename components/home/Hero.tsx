@@ -169,7 +169,7 @@ const Hero: React.FC = () => {
             className="max-h-[40rem] flex justify-center items-center overflow-hidden"
           >
             <Spline
-              className="w-full flex items-center justify-center md:scale-75"
+              className="w-full flex items-center justify-center scale-75 md:scale-100"
               style={{ overflow: "visible" }}
               // scene="https://prod.spline.design/ZiqyYsBzgvZY6PTk/scene.splinecode"
               // scene="https://prod.spline.design/5km77ydj1V7-CpvQ/scene.splinecode"
