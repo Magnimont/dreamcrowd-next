@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="lg:w-7/12 space-y-8 text-center lg:text-left"
+          className="lg:w-5/6 space-y-8 text-center lg:text-left"
         >
           <motion.header variants={itemVariants} className="mb-2 mt-8">
             <button className="rounded-full p-[1px] bg-gradient-to-r to-blue-700 from-purple-600 transform transition-transform hover:scale-105 animate-shimmer">
