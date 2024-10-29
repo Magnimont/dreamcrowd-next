@@ -53,18 +53,18 @@ const Expertises: FC = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="service-card group bg-black relative w-full h-[200px] border border-amber-100/20 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:bg-white"
+            className="service-card group bg-black relative w-full h-[200px] border border-amber-100/20 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:bg-muted"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/30 group-hover:opacity-0 transition-opacity duration-300"></div>
 
-            <div className="absolute inset-[1px] rounded-lg z-20 p-6 flex flex-col justify-between group-hover:bg-white transition-colors duration-300">
+            <div className="absolute inset-[1px] rounded-lg z-20 p-6 flex flex-col justify-between group-hover:bg-muted transition-colors duration-300">
               <div className="flex items-start gap-4">
-                <h3 className="text-xl font-medium text-white group-hover:text-black transition-colors duration-300">
+                <h3 className="text-xl font-medium text-white transition-colors duration-300">
                   {service.title}
                 </h3>
               </div>
 
-              <p className="text-sm text-gray-400 group-hover:text-gray-600 transition-colors duration-300 mt-2">
+              <p className="text-sm text-gray-400 transition-colors duration-300 mt-2">
                 {service.description}
               </p>
             </div>

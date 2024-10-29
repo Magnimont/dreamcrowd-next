@@ -68,9 +68,9 @@ export default function ContactForm() {
         <h1 className="text-6xl md:text-7xl font-medium mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-transparent">
           {greeting}
         </h1>
-        <div className="grid md:grid-cols-2 gap-8 text-lg">
-          <div className="space-y-8">
-            <Card className="bg-gradient-to-r from-[#3b58ff75] via-[#403dfa56] to-[#471cf523] backdrop-blur-md border-none text-center">
+        <div className="flex flex-col md:flex-row gap-8 text-lg">
+          <div className="space-y-8 md:max-w-sm w-full h-full">
+            <Card className="bg-gradient-to-br from-[#181818] to-[#050133]  backdrop-blur-md border-none text-center">
               <CardHeader>
                 <CardTitle className="text-white text-3xl">
                   Hire us Directly from
@@ -79,30 +79,30 @@ export default function ContactForm() {
               <CardContent className="space-y-6">
                 <Button
                   variant="ghost"
-                  className="w-full py-8 text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
+                  className="w-full py-8 rounded-lg text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
                 >
-                  <span className="flex items-center text-2xl">
+                  <span className="flex items-center text-xl">
                     <Image
                       width={30}
                       height={30}
                       src="/home/fiver.png"
                       alt="Fiverr"
-                      className="w-8 h-8 mr-2"
+                      className="w-6 h-6 mr-2"
                     />
                     Fiverr
                   </span>
                 </Button>
                 <Button
                   variant="ghost"
-                  className="w-full py-8 text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
+                  className="w-full py-8 rounded-lg text-center bg-[#fff]/5 hover:bg-[#fff]/10 text-white"
                 >
-                  <span className="flex items-center text-2xl">
+                  <span className="flex items-center text-xl">
                     <Image
                       width={30}
                       height={30}
                       src="/home/upwork.png"
                       alt="Upwork"
-                      className="w-8 h-8 mr-2"
+                      className="w-6 h-6 mr-2"
                     />
                     Upwork
                   </span>
@@ -123,7 +123,7 @@ export default function ContactForm() {
               </CardContent>
             </Card>
           </div>
-          <Card className="w-full bg-[#0a0a1e] space-y-8">
+          <Card className="w-full bg-gradient-to-br from-[#181818] to-[#050133] space-y-8">
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -140,7 +140,7 @@ export default function ContactForm() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="bg-transparent p-8 text-white border border-gray-700 rounded-md focus:border-blue-500 focus:ring-0"
+                      className="bg-transparent py-6 px-3 rounded-lg text-white border border-gray-700 focus:border-blue-500 focus:ring-0"
                       required
                     />
                   </div>
@@ -154,7 +154,7 @@ export default function ContactForm() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="bg-transparent p-8 text-white border border-gray-700 rounded-md focus:border-blue-500 focus:ring-0"
+                      className="bg-transparent py-6 px-3 rounded-lg text-white border border-gray-700 focus:border-blue-500 focus:ring-0"
                       required
                     />
                   </div>
@@ -173,11 +173,11 @@ export default function ContactForm() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-transparent p-8 text-white border border-gray-700 rounded-md focus:border-blue-500 focus:ring-0"
+                    className="bg-transparent py-6 px-3 rounded-lg text-white border border-gray-700 focus:border-blue-500 focus:ring-0"
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 py-2 mt-4">
                   <Textarea
                     id="message"
                     name="message"
@@ -185,13 +185,15 @@ export default function ContactForm() {
                     onChange={handleChange}
                     rows={4}
                     placeholder="Your message here"
-                    className="bg-transparent p-8 text-white border border-gray-700 rounded-md focus:border-blue-500 focus:ring-0 resize-none"
+                    className="bg-transparent py-6 px-3 rounded-lg text-white border border-gray-700 focus:border-blue-500 focus:ring-0 resize-none"
                     required
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full py-8 bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white font-semibold px-4 rounded-md transition duration-300 ease-in-out"
+                  className="w-full py-6 text-lg text-white font-medium px-4 rounded-lg 
+             bg-gradient-to-r from-[#F0D1FF] via-[#68A2FF] to-[#2D18FB] 
+             transition-all duration-500 ease-in-out transform"
                 >
                   SUBMIT
                 </Button>
