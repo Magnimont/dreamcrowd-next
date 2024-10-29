@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Reviews() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+    <div id="testimonials" className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
