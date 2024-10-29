@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
         alt="3D Animation Fallback"
         width={500}
         height={500}
-        className="relative z-10 w-full flex items-center justify-center scale-75 sm:scale-100 pt-16 overflow-visible"
+        className="relative z-10 w-full flex items-center justify-center scale-75 sm:scale-100 md:pt-16 overflow-visible min-w-[24rem] sm:min-w-[25rem] md:min-w-[30rem]"
       />
     </div>
   );

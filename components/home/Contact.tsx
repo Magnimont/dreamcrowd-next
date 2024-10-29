@@ -126,7 +126,7 @@ export default function ContactForm() {
           <Card className="w-full bg-[#0a0a1e] space-y-8">
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label
                       htmlFor="firstName"
