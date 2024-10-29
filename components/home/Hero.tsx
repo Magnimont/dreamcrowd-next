@@ -254,7 +254,7 @@ const Hero: React.FC = () => {
   );
 
   return (
-    <div id="testimonials" className="min-h-[40rem] max-w-screen-2xl mx-auto text-white p-6 md:p-12 flex flex-col">
+    <div className="min-h-[40rem] max-w-screen-2xl mx-auto text-white p-6 md:p-12 flex flex-col">
       <main className="flex-grow flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter max-h-[50rem]">
         {/* Content Section - Same as before */}
         {/* Content Section */}
