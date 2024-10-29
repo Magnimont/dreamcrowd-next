@@ -5,7 +5,6 @@ import Image from 'next/image'
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center space-y-6 p-4 bg-gradient-to-b from-black-300 to-blue-600">
-      {/* Illustration of a "lost" child in jungle using basic SVG shapes */}
       <div className="w-64 h-64 relative">
         <Image src="/images/404errors.png" alt="Lost in jungle" fill style={{ objectFit: 'cover' }} />
       </div>
