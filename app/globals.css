@@ -24,6 +24,7 @@ body::-webkit-scrollbar-thumb {
 
 body {
   background-color: rgb(0, 0, 0);
+  scroll-behavior: smooth;
 }
 .box-shadow {
   box-shadow: 0 -5px 45px 10px black, 0 -10px 60px 10px black;
@@ -146,9 +147,9 @@ body {
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground scroll-smooth;
   }
 }
