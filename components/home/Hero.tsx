@@ -26,7 +26,6 @@ const Hero: React.FC = () => {
       setIsMobileOrTablet(isMobileDevice);
       if (isMobileDevice) {
         setCanHandle3D(false);
-        return;
       }
       // WebGL capability check
       const canvas = document.createElement("canvas");
