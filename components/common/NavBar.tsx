@@ -96,13 +96,13 @@ export default function NavbarComponent() {
               <div className="flex-1 overflow-y-auto">
                 <div className="p-6 space-y-4">
                   <SheetTrigger asChild>
-                    <Button
+                    <Link href="/get-started"><Button
                       variant="outline"
                       size="lg"
                       className="w-full bg-white text-black hover:bg-white/90"
                     >
                       Get Started <ChevronRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    </Button></Link>
                   </SheetTrigger>
                   <SheetTrigger asChild>
                     <Button variant={"ghost"} className="w-full ">
