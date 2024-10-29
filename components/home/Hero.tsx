@@ -39,8 +39,8 @@ const Hero: React.FC = () => {
         ((isMobileDevice && deviceMemory >= 4 && processorCores >= 4) ||
           (!isMobileDevice && deviceMemory >= 2));
 
-      // setCanHandle3D(can3D);
-      setCanHandle3D(false);
+      setCanHandle3D(can3D);
+      // setCanHandle3D(false);
     };
 
     // Run check on mount and resize
