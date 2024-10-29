@@ -266,7 +266,7 @@ const Hero: React.FC = () => {
           <motion.header variants={itemVariants} className="mb-2 mt-8">
             <button className="rounded-full p-[1px] bg-gradient-to-r to-blue-700 from-purple-600 transform transition-transform hover:scale-105 animate-shimmer">
               <span className="bg-[#030303] flex flex-row gap-1 items-center justify-center text-xs md:text-sm rounded-full px-4 py-1.5 font-medium hover:bg-opacity-80 transition-colors">
-                Magnimont V2 <ChevronRight size={"16"} />
+                Magnimont V2 {performanceScore} <ChevronRight size={"16"} />
               </span>
             </button>
           </motion.header>
