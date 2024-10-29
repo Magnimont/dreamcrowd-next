@@ -42,7 +42,7 @@ const Expertises: FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-[1206px] mx-auto px-5 py-20 my-4 bg-[#030303]">
+    <div id="services" className="w-full max-w-[1206px] mx-auto px-5 py-20 my-4 bg-[#030303]">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center"></div>
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-2">
         Our Expertise

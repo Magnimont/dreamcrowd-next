@@ -69,7 +69,7 @@ export default function About() {
   };
 
   return (
-    <div className="relative text-white min-h-[40rem] flex items-center justify-center overflow-hidden">
+    <div id="about" className="relative text-white min-h-[40rem] flex items-center justify-center overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 -left-32 w-1/3 h-1/3">
         <Image

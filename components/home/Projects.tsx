@@ -15,7 +15,7 @@ export default function Projects() {
   const placeholderImages = Array(8).fill('/placeholder.svg')
 
   return (
-    <div ref={ref} className="min-h-[40rem]">
+    <div id='portfolio' ref={ref} className="min-h-[40rem]">
       <AnimatePresence>
         {inView && (
           <motion.div
