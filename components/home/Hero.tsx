@@ -26,6 +26,7 @@ const Hero: React.FC = () => {
       setIsMobileOrTablet(isMobileDevice);
       if (isMobileDevice) {
         setCanHandle3D(false);
+        return
       }
       // WebGL capability check
       const canvas = document.createElement("canvas");
@@ -89,7 +90,7 @@ const Hero: React.FC = () => {
 
             setPerformanceScore(performanceScore);
             console.log(performanceScore);
-            setCanHandle3D(performanceScore >= 45); // Threshold can be adjusted
+            setCanHandle3D(performanceScore >= 30); // Threshold can be adjusted
             return;
           }
 
