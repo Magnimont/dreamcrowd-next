@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
 
             setPerformanceScore(performanceScore);
             console.log(performanceScore);
-            setCanHandle3D(performanceScore >= 30); // Threshold can be adjusted
+            setCanHandle3D(performanceScore >= 45); // Threshold can be adjusted
             return;
           }
 
