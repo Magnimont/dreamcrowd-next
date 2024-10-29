@@ -19,35 +19,42 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const checkDeviceCapabilities = async () => {
       // Basic checks
-      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      );
+      const isMobileDevice =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
       setIsMobileOrTablet(isMobileDevice);
-
+      if (isMobileDevice) {
+        setCanHandle3D(false);
+        return;
+      }
       // WebGL capability check
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-      
+      const canvas = document.createElement("canvas");
+      const gl = canvas.getContext("webgl2") || canvas.getContext("webgl");
+
       if (!gl) {
         setCanHandle3D(false);
         return;
       }
 
       // Get GPU renderer info if available
-      let renderer = '';
+      let renderer = "";
       try {
-        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
         if (debugInfo) {
-          renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL).toLowerCase();
+          renderer = gl
+            .getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+            .toLowerCase();
         }
       } catch (e) {
-        console.log('GPU info not available');
+        console.log("GPU info not available");
       }
 
       // Check for known low-performance indicators
-      const isLowEndGPU = renderer.includes('intel') || 
-                         renderer.includes('mesa') || 
-                         renderer.includes('swiftshader');
+      const isLowEndGPU =
+        renderer.includes("intel") ||
+        renderer.includes("mesa") ||
+        renderer.includes("swiftshader");
 
       // Device memory check (if available)
       const deviceMemory = (navigator as any).deviceMemory || 4;
@@ -57,18 +64,20 @@ const Hero: React.FC = () => {
 
       // Screen resolution check
       const pixelRatio = window.devicePixelRatio || 1;
-      const screenResolution = window.screen.width * window.screen.height * pixelRatio;
+      const screenResolution =
+        window.screen.width * window.screen.height * pixelRatio;
 
       // Performance check using requestAnimationFrame
       if (!performanceCheckRef.current) {
         performanceCheckRef.current = true;
-        
+
         let frameCount = 0;
         let lastTime = performance.now();
         const measurePerformance = (timestamp: number) => {
           frameCount++;
-          
-          if (timestamp - lastTime >= 1000) { // Check after 1 second
+
+          if (timestamp - lastTime >= 1000) {
+            // Check after 1 second
             const fps = frameCount;
             const performanceScore = calculatePerformanceScore(
               fps,
@@ -78,16 +87,16 @@ const Hero: React.FC = () => {
               isLowEndGPU,
               isMobileDevice
             );
-            
+
             setPerformanceScore(performanceScore);
-            console.log(performanceScore)
+            console.log(performanceScore);
             setCanHandle3D(performanceScore >= 30); // Threshold can be adjusted
             return;
           }
-          
+
           requestAnimationFrame(measurePerformance);
         };
-        
+
         requestAnimationFrame(measurePerformance);
       }
     };
@@ -110,8 +119,10 @@ const Hero: React.FC = () => {
       score += Math.min(20, (cores / 8) * 20);
 
       // Resolution penalty for very high-res screens
-      const resolutionPenalty = resolution > (1920 * 1080) ? 
-        Math.min(10, ((resolution - (1920 * 1080)) / (3840 * 2160)) * 10) : 0;
+      const resolutionPenalty =
+        resolution > 1920 * 1080
+          ? Math.min(10, ((resolution - 1920 * 1080) / (3840 * 2160)) * 10)
+          : 0;
       score -= resolutionPenalty;
 
       // GPU penalty
@@ -146,10 +157,10 @@ const Hero: React.FC = () => {
 
       if (timestamp - lastCheck >= 1000) {
         const currentFPS = frameCount;
-        
+
         if (currentFPS < 30) {
           lowPerformanceStrikes++;
-          
+
           if (lowPerformanceStrikes >= MAX_STRIKES) {
             setCanHandle3D(false);
             return;
@@ -230,7 +241,6 @@ const Hero: React.FC = () => {
     }
   };
 
-
   const Fallback = () => (
     <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
       <Image
@@ -242,7 +252,6 @@ const Hero: React.FC = () => {
       />
     </div>
   );
-
 
   return (
     <div className="min-h-[40rem] max-w-screen-2xl mx-auto text-white p-6 md:p-12 flex flex-col">
