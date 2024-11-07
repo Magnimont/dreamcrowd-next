@@ -67,7 +67,7 @@ function TeamMemberCard({ name, role, details, image }: TeamMember) {
               animate={{ scale: isHovered ? 1.1 : 1 }}
               transition={{ duration: 0.3 }}
             >
-              <Image width={1200} height={720} src={"/images/404errors.png"} alt={name} className="w-full h-full object-cover blur-[2px] brightness-50" />
+              <div className="w-full h-full object-cover inset-0 bg-gradient-to-br from-[#130C5E] via-[#5FABE6] to-[#F0D1FF] blur-[2px] brightness-50" />
             </motion.div>
             <Badge className={`absolute top-4 right-4 ${roleColors[role] || 'bg-gray-500'}`}>
               {role}
