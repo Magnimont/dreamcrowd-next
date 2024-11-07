@@ -77,7 +77,7 @@ export default function NavbarComponent() {
         {/* Mobile Menu Button */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" className="p-0 md:hidden" size="icon">
+            <Button variant="ghost" className="p-0 md:hidden" size="icon"> 
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </Button>
@@ -148,10 +148,10 @@ export default function NavbarComponent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="hidden md:block"
-        >
+        ><Link href="/get-started">
           <Button variant="default" className="rounded-full">
             Get Started <ChevronRight className="ml-2 h-4 w-4" />
-          </Button>
+          </Button></Link>
         </motion.div>
       </nav>
     </motion.div>
