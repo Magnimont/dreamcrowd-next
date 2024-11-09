@@ -8,37 +8,41 @@ interface Service {
 }
 
 const Expertises: FC = () => {
-  const services: Service[] = [
-    {
-      title: "Website Development",
-      description: "Expertly coded websites tailored to your business needs.",
-      icon: "🌐",
-    },
-    {
-      title: "UI/UX Design",
-      description: "Intuitive interfaces focused on exceptional user experiences.",
-      icon: "🎨",
-    },
-    {
-      title: "AI Software Development",
-      description: "Cutting-edge AI integrations to drive efficiency and insights.",
-      icon: "🤖",
-    },
-    {
-      title: "Custom Software",
-      description: "Innovative custom software aligning with your unique requirements.",
-      icon: "💻",
-    },
-    {
-      title: "Branding & Graphics",
-      description: "Visually compelling assets that reinforce your brand identity.",
-      icon: "✨",
-    },
-    {
-      title: "Custom Scripts",
-      description: "Tailored automation scripts to streamline your workflows.",
-      icon: "📝",
-    },
+  const services: Service[] = [    
+   
+        {
+          title: "Website Development",
+          description: "Transform your online presence with high-performance websites built for conversion. Our development team delivers responsive, secure, and scalable solutions that turn visitors into loyal customers.",
+          icon: "🌐"
+        },
+        {
+          title: "UI/UX Design",
+          description: "Create meaningful digital experiences that users love. We blend data-driven insights with creative excellence to design interfaces that engage, convert, and leave lasting impressions.",
+          icon: "🎨"
+        },
+        {
+          title: "AI Software Development",
+          description: "Harness the power of artificial intelligence to revolutionize your operations. We build custom AI solutions that automate tasks, analyze data, and deliver actionable insights for smarter decision-making.",
+          icon: "🤖"
+        },
+        {
+          title: "Custom Software",
+          description: "Your unique challenges deserve powerful solutions. We develop tailored software that streamlines operations, optimizes workflows, and drives efficiency across your organization.",
+          icon: "💻"
+        },
+        {
+          title: "Branding & Graphics",
+          description: "Stand out with compelling visual narratives. Our design team creates cohesive brand experiences that capture attention, build trust, and establish lasting connections with your audience.",
+          icon: "✨"
+        },
+        {
+          title: "Custom Scripts",
+          description: "Automate with confidence. Our custom scripts eliminate repetitive tasks and optimize workflows, letting you focus on what matters most – growing your business.",
+          icon: "⚡"
+        }
+      
+    
+    
   ];
 
   return (
@@ -47,7 +51,9 @@ const Expertises: FC = () => {
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-2">
         Our Expertise
       </h1>
-      <p className="text-center text-gray-400 mb-10">Innovative solutions</p>
+      <p className="text-center text-gray-400 mb-10"> Solutions That Scale With Your Ambition
+
+</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
         {services.map((service, index) => (

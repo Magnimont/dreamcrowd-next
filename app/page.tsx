@@ -18,9 +18,9 @@ export default function Home() {
       <Hero />
       <Techstack />
       <About />
+      <Expertises />
       <Projects />
       <Cards />
-      <Expertises />
       <Reviews />
       <Faq />
       <ContactForm />

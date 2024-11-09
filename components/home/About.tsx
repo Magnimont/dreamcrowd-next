@@ -7,36 +7,36 @@ import { useInView } from "react-intersection-observer";
 
 const statisticsData = [
   {
-    value: "~$100 billion",
-    label: "cumulative trading volume to date",
+    value: "500+",
+    label: "Project delivered successfully",
   },
   {
-    value: "0.8%",
-    label: "of the global crypto spot trading volume",
-  },
-  {
-    value: "~30",
-    label: "Gravity Teammates (& growing)",
-  },
-  {
-    value: "25+",
-    label: "leading global and local crypto exchanges",
-  },
-  {
-    value: "2017",
-    label: "start, crypto-natives",
-  },
-  {
-    value: "1,200+",
-    label: "crypto-asset pairs",
+    value: "100+",
+    label: "Custom automation solutions",
   },
   {
     value: "24/7",
-    label: "liquidity",
+    label: "Client support and monitoring",
   },
   {
-    value: "5 billion+",
-    label: "trades done to date",
+    value: "98%",
+    label: "Client satisfaction rate",
+  },
+  {
+    value: "50+",
+    label: "AI integration deployed",
+  },
+  {
+    value: "1000+",
+    label: "websites optimized",
+  },
+  {
+    value: "3 years",
+    label: "of innovation and consistency",
+  },
+  {
+    value: "15+",
+    label: "industries served",
   },
 ];
 
@@ -106,12 +106,7 @@ export default function About() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           className="text-center mx-auto mb-12 text-sm md:text-base max-w-2xl"
         >
-          At Gravity Team, we are on the mission to balance the supply and
-          demand across crypto markets worldwide. We are a crypto native market
-          maker founded by traders, developers, and innovators who are strong
-          believers and supporters of the future of decentralization and digital
-          assets.
-        </motion.p>
+Magnimont is your strategic partner in digital transformation. We blend cutting-edge technology with creative innovation to build intelligent solutions that drive growth. From AI-powered chatbots and automation systems to compelling web experiences, we transform complex challenges into competitive advantages for forward-thinking businesses.  </motion.p>
 
         {/* Statistics Grid */}
         <motion.div

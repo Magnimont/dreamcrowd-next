@@ -39,8 +39,7 @@ export default function Projects() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-muted-foreground text-center max-w-2xl mb-12"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit semper dalar elementum tempus hac tellus libero accumsan.
-            </motion.p>
+            Discover how we've transformed ideas into reality            </motion.p>
 
             {/* Grid layout for projects */}
             <motion.div
