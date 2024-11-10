@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 
 const statisticsData = [
   {
-    value: "500+",
+    value: "150+",
     label: "Project delivered successfully",
   },
   {
@@ -23,11 +23,11 @@ const statisticsData = [
     label: "Client satisfaction rate",
   },
   {
-    value: "50+",
+    value: "25+",
     label: "AI integration deployed",
   },
   {
-    value: "1000+",
+    value: "100+",
     label: "websites optimized",
   },
   {
@@ -35,7 +35,7 @@ const statisticsData = [
     label: "of innovation and consistency",
   },
   {
-    value: "15+",
+    value: "25+",
     label: "industries served",
   },
 ];
