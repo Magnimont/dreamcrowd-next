@@ -25,53 +25,53 @@ export default function Reviews() {
 const testimonials = [
   {
     quote:
-      "mangekyo sharingan ayo see ma amateratsu",
+      "We wish to thank Vikas Nath and his team at Magnimont for delivering our platform ahead of schedule. We transitioned smoothly thanks to the level of precision and the clean code. Could not recommend them more & I would 100% work with them again!",
     name: "Chelsey Childers",
-    title: "Anime girl",
+    // title: "Anime girl",
     image: "/reviews/ChelseyChilders.webp", // You'll need to add actual image paths
   },
   {
     quote:
-      "hi",
+      "Choosing to partner with Magnimont for implementation of AI was indeed our smartest decision. They have a professional, responsive and technically brilliant team. They took it from our idea to reality without exceeding our budget.",
     name: "Kish Kuruppath",
-    title: "Purav Jha ",
+    // title: "Purav Jha ",
     image: "/reviews/KishKuruppath.webp",
   },
   {
     quote:
-      "kya re bidu jake ciggerate lana!!",
+      "Superb job of making web Divisions! Magnimont brought new life to our old site by creating a sharp design, fast-loading site that appeals to our customers. It is simply a testament to their experience in UI/UX.",
     name: "Varun Dosapati",
-    title: "Kapil sharma 2.0",
+    // title: "Kapil sharma 2.0",
     image: "/reviews/VarunDosapati.webp",
   },
   {
     quote:
       "İ have no idea about this website but it's good to see what they discovered for the future and helping the nation with great skills good to be part of the team",
     name: "Bilal Bhat",
-    title: "Turkey",
+    // title: "Turkey",
     image: "/reviews/BilalBhat.webp",
   },
 ];
 const testimonials2 = [
   {
     quote:
-      "İ have no idea about this website but it's good to see what they discovered for the future and helping the nation with great skills good to be part of the team",
-    name: "Bilal Bhat",
-    title: "Turkey",
-    image: "/reviews/BilalBhat.webp",
+      "We saw 40% more conversions with the website Magnimont delivered for us. They are in tune with business needs.",
+    name: "Rakesh Rangori",
+    // title: "Turkey",
+    image: "/reviews/RakeshRangori.webp",
   },
   {
     quote:
-      "Ask CDCR San Quintin State Prison 2008. We installed Purex dispensers throughout the prison to combat diseases...and it was a Roaring Success (as in Roaring Drunk)",
-    name: "Jane Cooper",
-    title: "Marketing Coordinator",
-    image: "/placeholder.svg",
+      " Right from ideation to execution, Vikas Nath and his team at Magnimont have exceeded expectations. There code quality and documentation is really great. We are already onto our second project with them",
+    name: "Shashwat Poddar",
+    // title: "Marketing Coordinator",
+    image: "/reviews/ShashwatPoddar.webp",
   },
   {
     quote:
-      "Ask CDCR San Quintin State Prison 2008. We installed Purex dispensers throughout the prison to combat diseases...and it was a Roaring Success (as in Roaring Drunk)",
-    name: "Jane Cooper",
-    title: "Marketing Coordinator",
-    image: "/placeholder.svg",
+      "Vikas and the Magnimont team are exceptional at what they do. They built our custom software exactly to specification. ",
+    name: "Shashikant Chaubey",
+    // title: "Marketing Coordinator",
+    image: "/reviews/ShashikantChaubey.webp",
   },
 ];

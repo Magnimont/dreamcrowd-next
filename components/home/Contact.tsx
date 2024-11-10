@@ -117,18 +117,24 @@ export default function ContactForm() {
         </Card>
 
         <Card className="bg-transparent border-none relative overflow-hidden py-16 group hover:transform hover:scale-[1.02] transition-all duration-500 ease-out">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a237e] via-[#4a90e2] to-[#82b1ff] 
-            opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-in-out blur-lg" />
-          <div className="absolute inset-[1px] bg-black rounded-[inherit]" />
-          <CardContent className="relative space-y-6 p-6">
-            <Button
-              variant="ghost"
-              className="w-full bg-transparent hover:bg-transparent text-white group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-            >
-              BOOK US FOR CONSULTATION <ArrowUpRight className="inline ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
-            </Button>
-          </CardContent>
-        </Card>
+  {/* Outer glow effect */}
+  <div className="absolute -inset-1 bg-gradient-to-br from-[#1a237e] via-[#4a90e2] to-[#82b1ff] opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700 ease-in-out" />
+  
+  {/* Inner gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#1a237e] via-[#4a90e2] to-[#82b1ff] opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-in-out blur-lg" />
+  
+  <div className="absolute inset-[1px] bg-black rounded-[inherit]" />
+  
+  <CardContent className="relative space-y-6 p-6">
+    <Button
+      variant="ghost"
+      className="w-full bg-transparent hover:bg-transparent text-white group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+    >
+      BOOK US FOR CONSULTATION <ArrowUpRight className="inline ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
+    </Button>
+  </CardContent>
+</Card>
+
       </div>
 
       <Card className="w-full bg-gradient-to-br from-[#030303] to-[#1a237e] space-y-8 hover:shadow-xl hover:shadow-blue-500/10 transition-shadow duration-500">

@@ -67,8 +67,6 @@ const Footer = () => {
         {/* Header Section */}
         <div className="mb-16 lg:mb-0 lg:w-1/3 space-y-6">
           <div className="space-y-1">
-            <p className="text-sm">2261 Market Street #5039</p>
-            <p className="text-sm">San Francisco, CA 94114</p>
           </div>
           <div className="flex space-x-2">
             {socialLinks.map((social) => (
