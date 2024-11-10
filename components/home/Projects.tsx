@@ -18,7 +18,7 @@ export default function Projects() {
     '/projects/onlyfans.webp',
     '/projects/pizza.webp',
     '/projects/hfai.webp',
-    '/projects/onlyfans.webp'
+    '/projects/noerror.webp'
   ];
 
   return (
