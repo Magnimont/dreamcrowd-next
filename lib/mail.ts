@@ -56,3 +56,25 @@ export const sendContactMail = async (data: ContactFormData) => {
 
   console.log(mail);
 };
+  export const sendNewsLetterMail = async (data: string) => {
+    const emailTemplatePath = path.join(process.cwd(), 'templates', 'news-letter.html');
+    let emailTemplate = fs.readFileSync(emailTemplatePath, 'utf-8');
+  
+    const currentDate = new Date().toLocaleDateString();
+    const currentTime = new Date().toLocaleTimeString();
+  
+    // Replace placeholders with actual data
+    emailTemplate = emailTemplate
+      .replace('{{data.email}}', data)
+      .replace('{{currentDate}}', currentDate)
+      .replace('{{currentTime}}', currentTime);
+
+    const mail = await resend.emails.send({
+      from: fromEmail,
+      to: toEmail,
+      subject: `New Newsletter Subscription`,
+      html: emailTemplate
+    });
+
+    console.log(mail);
+  };
