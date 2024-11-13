@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://www.url.ie/a",
     title: "Magnimont",
     description:
-      "use software for ventures only",
+      "Software for Ventures",
     siteName: "Magnimont",
     images: [
       {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     creator: "@magnimont",
     title: "Magnimont",
     description:
-      "use software for ventures only",
+      "Software for Ventures",
     images: [
       {
         url: "/images/favico.svg", // Update the path accordingly
