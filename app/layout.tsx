@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://www.url.ie/a",
     title: "Magnimont",
     description:
-      "Magnimont is a leading digital agency specializing in custom web development, AI solutions, and tailored software. We craft innovative websites, intelligent chatbots, Discord bots, and custom applications to drive growth for businesses across industries. Our experts blend cutting-edge technologies with creative ingenuity to deliver digital experiences that captivate users and propel your brand forward.",
+      "use software for ventures only",
     siteName: "Magnimont",
     images: [
       {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     creator: "@magnimont",
     title: "Magnimont",
     description:
-      "Magnimont is a leading digital agency specializing in custom web development, AI solutions, and tailored software. We craft innovative websites, intelligent chatbots, Discord bots, and custom applications to drive growth for businesses across industries. Our experts blend cutting-edge technologies with creative ingenuity to deliver digital experiences that captivate users and propel your brand forward.",
+      "use software for ventures only",
     images: [
       {
         url: "/images/favico.svg", // Update the path accordingly
