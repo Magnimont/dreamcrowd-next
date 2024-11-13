@@ -32,7 +32,7 @@ const teamMembers: TeamMember[] = [
     name: "Arane",
     role: "Marketing",
     details: "Specializes in large-scale projects",
-    image: "/placeholder.svg",
+    image: "/team/ara.png",
   },
   {
     name: "Akash Jha",
