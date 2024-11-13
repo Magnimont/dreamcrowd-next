@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import OpenPositions from '../../components/OpenPositions';
+import Image from 'next/image';
 
 const employees = [
   {
@@ -44,7 +45,7 @@ export default function TeamAndValues() {
 
   useEffect(() => {
     employees.forEach((employee) => {
-      const img = new Image();
+      const img = new window.Image();
       img.src = employee.image;
       img.onload = () => {
         setImageCache(prev => new Map(prev).set(employee.id, img.src));
@@ -105,9 +106,11 @@ export default function TeamAndValues() {
                     selectedEmployee.id === employee.id ? 'ring-2' : ''
                   }`}
                 >
-                  <img
+                  <Image
                     src={employee.image}
                     alt={employee.name}
+                    width={600}
+                    height={600}
                     className="w-full h-full object-cover"
                   />
                 </button>

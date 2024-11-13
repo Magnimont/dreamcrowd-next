@@ -47,7 +47,7 @@ export default function Projects() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-muted-foreground text-center max-w-2xl mb-12"
             >
-              Discover how we've transformed ideas into reality
+              Discover how we&apos;ve transformed ideas into reality
             </motion.p>
 
             <motion.div

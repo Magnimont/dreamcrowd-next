@@ -72,7 +72,7 @@ export default function Cards() {
             No shirt, no shoes, no weapons.
           </h2>
           <p className="mt-4 max-w-[26rem] text-left text-base/6 text-gray-400 group-hover:text-white transition-colors duration-500">
-            If someone yells "stop!", goes limp, or taps out, the fight is over.
+            If someone yells &quot;stop!&quot;, goes limp, or taps out, the fight is over.
           </p>
         </div>
       </motion.div>
