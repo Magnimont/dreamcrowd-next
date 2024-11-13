@@ -3,6 +3,7 @@ import "./globals.css";
 import NavbarComponent from "@/components/common/NavBar";
 import { inter } from "@/lib/fonts";
 import Footer from "@/components/common/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Magnimont",
@@ -54,9 +55,10 @@ export default function RootLayout({
       <body
         className={`dark antialiased bg-[#030303] relative overflow-x-hidden ${inter.className}`}
       >
-          <NavbarComponent />
+        <NavbarComponent />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

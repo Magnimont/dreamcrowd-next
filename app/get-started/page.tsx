@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ChevronRight, Code, Rocket, Globe, Cpu, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useToast } from "@/hooks/use-toast"
 
 type Service = {
   icon: JSX.Element;
@@ -23,6 +24,7 @@ type FormData = {
 };
 
 export default function GetStartedHero() {
+  const { toast } = useToast()
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -110,7 +112,10 @@ export default function GetStartedHero() {
       });
 
       if (response.ok) {
-        alert('Thank you for your inquiry! We\'ll get back to you soon.');
+        toast({
+          title: "Success",
+          description: "Thank you for your inquiry! We'll get back to you soon.",
+        })
         setFormData({
           name: '',
           email: '',
@@ -120,10 +125,18 @@ export default function GetStartedHero() {
         });
         setSelectedService(null);
       } else {
-        alert('There was an error submitting your inquiry. Please try again.');
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "There was an error submitting your inquiry. Please try again.",
+        })
       }
     } catch (error) {
-      alert('There was an error submitting your inquiry. Please try again.');
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "There was an error submitting your inquiry. Please try again.",
+      })
     }
 
     setIsSubmitting(false);
