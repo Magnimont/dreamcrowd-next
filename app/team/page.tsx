@@ -29,7 +29,7 @@ const teamMembers: TeamMember[] = [
     image: "/team/sam.png",
   },
   {
-    name: "Arane",
+    name: "Cut Zahara Riyanta",
     role: "Marketing",
     details: "Specializes in large-scale projects",
     image: "/team/ara.png",
