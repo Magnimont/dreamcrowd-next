@@ -1,36 +1,67 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useState } from 'react'
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import Image from 'next/image'
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 type TeamMember = {
-  name: string
-  role: keyof typeof roleColors
-  details: string
-  image: string
-}
+  name: string;
+  role: keyof typeof roleColors;
+  details: string;
+  image: string;
+};
 
 const teamMembers: TeamMember[] = [
-  { name: 'Vikash Jah Saizuo', role: 'CEO', details: 'Visionary leader with 15 years of experience', image: '/team/ceo.png' },
-  { name: 'Jane Smith', role: 'Project Manager', details: 'Expert in Agile methodologies', image: '/placeholder.svg' },
-  { name: 'Mike Johnson', role: 'Project Manager', details: 'Specializes in large-scale projects', image: '/placeholder.svg' },
-  { name: 'Emily Brown', role: 'Head of Design', details: 'Award-winning UX/UI designer', image: '/placeholder.svg' },
-  { name: 'Alex Lee', role: 'Lead Developer', details: 'Full-stack expert with 10+ years experience', image: '/placeholder.svg' },
-  { name: 'Sarah Davis', role: 'Marketing Lead', details: 'Digital marketing specialist', image: '/placeholder.svg' },
-]
+  {
+    name: "Vikash Jah Saizuo",
+    role: "CEO AND FOUNDER",
+    details: "Visionary leader with 15 years of experience",
+    image: "/team/ceo.png",
+  },
+  {
+    name: "Mohammed Jariullah",
+    role: "CHRO",
+    details: "Expert in Agile methodologies",
+    image: "/team/sam.png",
+  },
+  {
+    name: "Arane",
+    role: "Marketing",
+    details: "Specializes in large-scale projects",
+    image: "/placeholder.svg",
+  },
+  {
+    name: "Akash Jha",
+    role: "Marketing",
+    details: "Award-winning UX/UI designer",
+    image: "/team/akash.png",
+  },
+  {
+    name: "Vimukthi",
+    role: "Developer",
+    details: "Full-stack expert with 6+ years experience",
+    image: "/placeholder.svg",
+  },
+  {
+    name: "Ninju",
+    role: "Developer",
+    details: "Digital marketing specialist",
+    image: "/team/ninju.png",
+  },
+];
 
 const roleColors = {
-  CEO: 'bg-red-500',
-  'Project Manager': 'bg-blue-500',
-  'Head of Design': 'bg-purple-500',
-  'Lead Developer': 'bg-green-500',
-  'Marketing Lead': 'bg-yellow-500',
-} as const
+  "CEO AND FOUNDER": "bg-red-500",
+  CHRO: "bg-blue-500",
+  "Project Manager": "bg-blue-500",
+  Marketing: "bg-purple-500",
+  "Lead Developer": "bg-green-500",
+  Developer: "bg-yellow-500",
+} as const;
 
 export default function TeamMembers() {
   return (
@@ -44,11 +75,11 @@ export default function TeamMembers() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function TeamMemberCard({ name, role, details, image }: TeamMember) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -69,14 +100,23 @@ function TeamMemberCard({ name, role, details, image }: TeamMember) {
             >
               <div className="w-full h-full object-cover inset-0 bg-gradient-to-br from-[#130C5E] via-[#5FABE6] to-[#F0D1FF] blur-[2px] brightness-50" />
             </motion.div>
-            <Badge className={`absolute top-4 right-4 ${roleColors[role] || 'bg-gray-500'}`}>
+            <Badge
+              className={`absolute top-4 right-4 ${
+                roleColors[role] || "bg-gray-500"
+              }`}
+            >
               {role}
             </Badge>
           </div>
           <div className="p-6 z-20 relative">
             <Avatar className="w-24 h-24 mx-auto mb-4">
               <AvatarImage src={image} alt={name} />
-              <AvatarFallback>{name.split(' ').map((n: string) => n[0]).join('')}</AvatarFallback>
+              <AvatarFallback>
+                {name
+                  .split(" ")
+                  .map((n: string) => n[0])
+                  .join("")}
+              </AvatarFallback>
             </Avatar>
             <h2 className="text-2xl font-bold mb-2 text-center">{name}</h2>
             <p className="text-muted-foreground text-center">{details}</p>
@@ -92,5 +132,5 @@ function TeamMemberCard({ name, role, details, image }: TeamMember) {
         </CardFooter>
       </Card>
     </motion.div>
-  )
+  );
 }
