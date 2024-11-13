@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { ChevronRight, Code, Rocket, Globe, Cpu, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast"
+import FluidCursor from '@/components/ui/fluid-cursor'; // Import the FluidCursor component
 
 type Service = {
   icon: JSX.Element;
@@ -148,7 +149,8 @@ export default function GetStartedHero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+      <FluidCursor /> {/* Add the FluidCursor component */}
+      <div className="min-h-screen bg-black text-white">
         <div className="max-w-6xl mx-auto px-4 py-16">
           {/* Hero Section */}
           <motion.div 

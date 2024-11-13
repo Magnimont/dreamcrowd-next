@@ -1,5 +1,6 @@
 import React from 'react';
 import { Twitter, Github, Linkedin, MessageCircle } from 'lucide-react';
+import { DiscordLogoIcon } from '@radix-ui/react-icons';
 
 const Footer = () => {
   const footerLinks = {
@@ -56,7 +57,7 @@ const Footer = () => {
       name: 'Discord', 
       href: 'https://discord.gg/magnimont-876113814314164256', 
       icon: <div className="flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 hover:bg-zinc-800">
-              <MessageCircle size={16} />
+              <DiscordLogoIcon width={16} height={16} />
             </div>
     },
   ];
