@@ -49,11 +49,11 @@ export default function Cards() {
         <div className="relative z-10 p-8">
           <div className="max-w-xs">
             <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-bold tracking-[-0.015em] text-white">
-              Gippity AI powers the entire universe
+              Feeding Hearts & Souls
             </h2>
             <p className="mt-4 text-left text-base/6 text-gray-400 group-hover:text-white transition-colors duration-500">
-              With over 100,000 mothly active bot users, Gippity AI is the most
-              popular AI platform for developers.
+              Making a difference one meal at a time, serving over 150 community
+              members through our revenue-sharing initiative.
             </p>
           </div>
         </div>
@@ -69,10 +69,11 @@ export default function Cards() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#130C5E] via-[#5FABE6] to-[#F0D1FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
         <div className="relative z-10 p-8">
           <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-bold tracking-[-0.015em] text-white">
-            No shirt, no shoes, no weapons.
+            Tech Treasures
           </h2>
           <p className="mt-4 max-w-[26rem] text-left text-base/6 text-gray-400 group-hover:text-white transition-colors duration-500">
-            If someone yells &quot;stop!&quot;, goes limp, or taps out, the fight is over.
+            Empowering creators with premium hardware and software resources to
+            fuel their digital journey.
           </p>
         </div>
       </motion.div>
@@ -88,12 +89,11 @@ export default function Cards() {
         <div className="relative z-10 p-8">
           <div className="max-w-sm">
             <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-bold tracking-[-0.015em] text-white">
-              Signup for blazing-fast cutting-edge state of the art Gippity AI
-              wrapper today!
+              Innovation Hub
             </h2>
             <p className="mt-4 max-w-[26rem] text-left text-base/6 text-gray-400 group-hover:text-white transition-colors duration-500">
-              With over 100,000 mothly active bot users, Gippity AI is the most
-              popular AI platform for developers.
+              Where great minds connect through dynamic hackathons and tech
+              gatherings to shape tomorrow&apos;s solutions.
             </p>
           </div>
         </div>
