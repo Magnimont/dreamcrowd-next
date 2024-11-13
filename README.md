@@ -1,39 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+# Magnimont
+
+**Magnimont** is a digital agency specializing in custom web development, AI solutions, and tailored software for businesses across various industries. We focus on creating cutting-edge websites, intelligent chatbots, Discord bots, and custom applications to help companies grow and deliver exceptional digital experiences.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Features
+
+- **Custom Web Development**: Innovative, responsive websites tailored to your business needs.
+- **AI Solutions**: Intelligent chatbot integration, automation, and AI-powered features.
+- **Software Development**: End-to-end development of custom applications and business tools.
+- **Discord Bots**: Custom Discord bot creation and deployment for community engagement.
+- **Full-Stack Expertise**: From front-end design to back-end infrastructure, we deliver complete solutions.
+
+## Installation
+
+To get started with Magnimont’s project, clone the repository and install the required dependencies.
+
+```bash
+git clone https://github.com/Magnimont/magnimontV2-next.git
+cd magnimontV2-next
+npm install
+```
+
+Ensure that you have the following prerequisites installed:
+- **Node.js** (v14+)
+- **npm** (v6+)
+
+## Usage
+
+After installing the necessary dependencies, you can start the project by running the development server.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once the server is running, visit [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Folder Structure
 
-## Learn More
+```bash
+magnimont/
+├── src/
+│   ├── components/   # Reusable components for the frontend
+│   └── routes/       # Route pages for the application    
+├── static/           # Static assets
+├── package.json      # Project dependencies and scripts
+└── README.md         # Documentation
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev`: Starts the development server.
+- `npm run build`: Compiles and bundles the application for production.
+- `npm run start`: Runs the production build.
+- `npm run lint`: Lints the code for potential errors and best practices.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Testing
 
-## Deploy on Vercel
+To ensure code quality, you can run tests using the following command:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm test
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
 
+We welcome contributions from the community! To contribute:
 
-eggz and seg no nvm
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Create a pull request, and we’ll review your changes.
+
+### Guidelines
+
+- Follow the existing code style and naming conventions.
+- Write meaningful commit messages.
+- Ensure that your contribution does not break any existing functionality.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+For inquiries, support, or feedback, please reach out to us at [hi@magnimont.com](mailto:hi@magnimont.com).
+
+---
