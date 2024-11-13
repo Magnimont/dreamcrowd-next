@@ -46,6 +46,7 @@ export const sendContactMail = async (data: ContactFormData) => {
     .replace('${data.firstName}', data.firstName)
     .replace('${data.lastName}', data.lastName)
     .replace('${data.email}', data.email)
+    .replace('${subject}', `Contact - ${data.firstName} ${data.lastName}`)
     .replace('${data.message}', data.message);  const mail = await resend.emails.send({
     from: fromEmail,
     to: toEmail,
