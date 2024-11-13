@@ -44,7 +44,7 @@ const teamMembers: TeamMember[] = [
     name: "Vimukthi Indunil",
     role: "Developer",
     details: "Full-stack expert with 6+ years experience",
-    image: "/placeholder.svg",
+    image: "/team/vimukthi.png",
   },
   {
     name: "Niranjan Iyer",
