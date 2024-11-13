@@ -23,7 +23,7 @@ export async function sendContactInfo(values: ContactFormData): Promise<{
     await sendContactMail(values);
     return {
       success: true,
-      data: "done",
+      data: "Success 🎉",
     };
   } catch (error) {
     return {
