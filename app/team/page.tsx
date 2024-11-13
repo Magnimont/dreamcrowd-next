@@ -110,7 +110,7 @@ function TeamMemberCard({ name, role, details, image }: TeamMember) {
           </div>
           <div className="p-6 z-20 relative">
             <Avatar className="w-24 h-24 mx-auto mb-4">
-              <AvatarImage src={image} alt={name} />
+              <AvatarImage className="object-cover" src={image} alt={name} />
               <AvatarFallback>
                 {name
                   .split(" ")
