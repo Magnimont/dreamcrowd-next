@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     image: "/placeholder.svg",
   },
   {
-    name: "Ninju",
+    name: "Niranjan Iyer",
     role: "Developer",
     details: "Digital marketing specialist",
     image: "/team/ninju.png",
