@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Application } from "@splinetool/runtime";
 import Image from "next/image";
 import HeroGif from "@/public/hero5mb.gif";
+import Link from "next/link";
 
 const Hero: React.FC = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState<boolean>(false);
@@ -26,7 +27,7 @@ const Hero: React.FC = () => {
       setIsMobileOrTablet(isMobileDevice);
       if (isMobileDevice) {
         setCanHandle3D(false);
-        return
+        return;
       }
       // WebGL capability check
       const canvas = document.createElement("canvas");
@@ -299,16 +300,19 @@ const Hero: React.FC = () => {
             variants={itemVariants}
             className="flex flex-col lg:flex-row gap-4"
           >
-            <Button className="w-full lg:w-auto py-7 bg-gradient-to-r text-black bg-white rounded-full px-8 text-sm md:text-base font-medium hover:opacity-90 transition-all duration-300 hover:scale-105 animate-fade-in">
-              Get Started
-            </Button>
-
-            <Button
-              variant={"ghost"}
-              className="w-full lg:w-auto py-7 rounded-full bg-gradient-to-r flex flex-row items-center justify-center bg-[#030303] px-7 text-sm md:text-base font-medium hover:bg-opacity-80 transition-all duration-300 hover:scale-105"
-            >
-              Forums <ChevronRight />
-            </Button>
+            <Link href={"/get-started"}>
+              <Button className="w-full lg:w-auto py-7 bg-gradient-to-r text-black bg-white rounded-full px-8 text-sm md:text-base font-medium hover:opacity-90 transition-all duration-300 hover:scale-105 animate-fade-in">
+                Get Started
+              </Button>
+            </Link>
+            <Link href={"https://forum.magnimont.com/"}>
+              <Button
+                variant={"ghost"}
+                className="w-full lg:w-auto py-7 rounded-full bg-gradient-to-r flex flex-row items-center justify-center bg-[#030303] px-7 text-sm md:text-base font-medium hover:bg-opacity-80 transition-all duration-300 hover:scale-105"
+              >
+                Forums <ChevronRight />
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
         {/* Hero Media - Moved to top for mobile */}

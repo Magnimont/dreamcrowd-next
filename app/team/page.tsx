@@ -11,7 +11,7 @@ import Image from "next/image";
 type TeamMember = {
   name: string;
   role: keyof typeof roleColors;
-  details: string;
+  // details: string;
   image: string;
 };
 
@@ -19,37 +19,37 @@ const teamMembers: TeamMember[] = [
   {
     name: "Vikas Nath Jha",
     role: "CEO AND FOUNDER",
-    details: "Visionary leader with 15 years of experience",
+    // details: "Visionary leader with 15 years of experience",
     image: "/team/ceo.png",
   },
   {
     name: "Mohammed Jariullah",
     role: "CHRO",
-    details: "Expert in Agile methodologies",
+    // details: "Expert in Agile methodologies",
     image: "/team/sam.png",
   },
   {
     name: "Cut Zahara Riyanta",
     role: "Marketing",
-    details: "Specializes in large-scale projects",
+    // details: "Specializes in large-scale projects",
     image: "/team/ara.png",
   },
   {
     name: "Akash Jha",
     role: "Marketing",
-    details: "Award-winning UX/UI designer",
+    // details: "Award-winning UX/UI designer",
     image: "/team/akash.png",
   },
   {
     name: "Vimukthi Indunil",
     role: "Developer",
-    details: "Full-stack expert with 6+ years experience",
+    // details: "Full-stack expert with 6+ years experience",
     image: "/team/vimukthi.png",
   },
   {
     name: "Niranjan Iyer",
     role: "Developer",
-    details: "Digital marketing specialist",
+    // details: "Digital marketing specialist",
     image: "/team/ninju.png",
   },
 ];
@@ -78,7 +78,7 @@ export default function TeamMembers() {
   );
 }
 
-function TeamMemberCard({ name, role, details, image }: TeamMember) {
+function TeamMemberCard({ name, role, image }: TeamMember) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -90,11 +90,11 @@ function TeamMemberCard({ name, role, details, image }: TeamMember) {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <Card className="overflow-hidden">
-        <CardContent className="p-0 relative">
+      <Card className="overflow-hidden relative min-h-56">
+        <CardContent className="p-0 h-full w-full absolute">
           <div className="absolute w-full h-full">
             <motion.div
-              className="w-full h-48 sm:h-64 overflow-hidden"
+              className="w-full h-full overflow-hidden"
               animate={{ scale: isHovered ? 1.1 : 1 }}
               transition={{ duration: 0.3 }}
             >
@@ -119,7 +119,7 @@ function TeamMemberCard({ name, role, details, image }: TeamMember) {
               </AvatarFallback>
             </Avatar>
             <h2 className="text-2xl font-bold mb-2 text-center">{name}</h2>
-            <p className="text-muted-foreground text-center">{details}</p>
+           {/* { <p className="text-muted-foreground text-center">{details}</p>} */}
           </div>
         </CardContent>
         <CardFooter className="justify-center">
