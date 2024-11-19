@@ -22,7 +22,7 @@ const Footer = () => {
     Handbook: [
       { name: 'Why we exist', href: '#' },
       { name: 'How we work', href: '#' },
-      { name: 'Support', href: '#' },
+      { name: 'Support', href: '/Support' },
     ],
     Legal: [
       { name: 'Cookie Policy', href: '/Cookie-Policy' },
