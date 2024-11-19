@@ -1,4 +1,5 @@
 "use client"
+import TextReveal from "@/components/home/TextReveal";
 import { motion } from "framer-motion";
 
 export default function TermsOfService() {
@@ -146,6 +147,7 @@ export default function TermsOfService() {
           contact us at <a href="mailto:hi@magnimont.com" className="bg-gradient-to-r from-white to-blue-300 text-transparent bg-clip-text animate-gradient">hi@magnimont.com</a>.
         </p>
       </section>
+      <TextReveal/>
     </motion.main>
   );
 }

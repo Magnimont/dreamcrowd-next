@@ -15,7 +15,6 @@ const Footer = () => {
     ],
     Company: [
       { name: 'About', href: '#' },
-      { name: 'Blog', href: '#' },
       { name: 'Team', href: '/team' },
       { name: 'Careers', href: '/Careers' },
       { name: 'Contact', href: '#' },
@@ -26,7 +25,7 @@ const Footer = () => {
       { name: 'Support', href: '#' },
     ],
     Legal: [
-      { name: 'Cookie Policy', href: '#' },
+      { name: 'Cookie Policy', href: '/Cookie-Policy' },
       { name: 'Privacy Policy', href: '/Privacy-policy' },
       { name: 'Terms of Service', href: '/Terms-of-Service' },
     ],

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import TextReveal from '@/components/home/TextReveal';
 
 export default function PrivacyPolicy() {
   return (
@@ -158,6 +159,7 @@ export default function PrivacyPolicy() {
 
 
       `}</style>
+      <TextReveal/>
     </motion.main>
   );
 }
