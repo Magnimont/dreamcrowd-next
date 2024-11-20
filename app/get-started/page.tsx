@@ -47,7 +47,7 @@ export default function GetStartedHero() {
       icon: <Globe className="w-6 h-6 text-blue-400" />,
       title: "Web Development",
       description: "Responsive, modern websites and progressive web applications",
-      rate: "Starting at $65/hour"
+      rate: "Starting at $20/hour"
     },
     {
       icon: <Cpu className="w-6 h-6 text-blue-400" />,
@@ -57,91 +57,102 @@ export default function GetStartedHero() {
     }
   ];
 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Replace with your Discord webhook URL
-    const webhookUrl = 'https://discord.com/api/webhooks/1300476058642022411/xneDEMoUCl2kUcVpe2W5g3E8hEa0CAcL4Z_puEjIDm6Tcm47E7MUseboVypEnb1UZbLf';
-
-    const embedData = {
-      embeds: [{
-        title: "New Project Inquiry",
-        color: 0x0099ff,
-        fields: [
-          {
-            name: "Service Requested",
-            value: selectedService?.title || "Not specified",
-            inline: true
-          },
-          {
-            name: "Client Name",
-            value: formData.name,
-            inline: true
-          },
-          {
-            name: "Email",
-            value: formData.email,
-            inline: true
-          },
-          {
-            name: "Company",
-            value: formData.company || "Not specified",
-            inline: true
-          },
-          {
-            name: "Budget",
-            value: formData.budget || "Not specified",
-            inline: true
-          },
-          {
-            name: "Message",
-            value: formData.message || "No message provided"
-          }
-        ],
-        timestamp: new Date().toISOString()
-      }]
-    };
-
-    try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(embedData)
+     // Validate form fields
+     if (!selectedService) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Please select a service.',
       });
-
-      if (response.ok) {
+      return;
+    }
+    if (!formData.name.trim()) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Please enter your name.',
+      });
+      return;
+    }
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Please enter a valid email address.',
+      });
+      return;
+    }
+    if (!formData.budget.trim()) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Please enter your budget.',
+      });
+      return;
+    }
+    if (!formData.message.trim()) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Please enter your message.',
+      });
+      return;
+    }
+    setIsSubmitting(true);
+  
+    try {
+      const response = await fetch('/api/send-discord-webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          embeds: [
+            {
+              title: "New Project Inquiry",
+              color: 0x0099ff,
+              fields: [
+                { name: "Service Requested", value: selectedService?.title , inline: true },
+                { name: "Client Name", value: formData.name, inline: true },
+                { name: "Email", value: formData.email, inline: true },
+                { name: "Company", value: formData.company || "Not specified", inline: true },
+                { name: "Budget", value: formData.budget, inline: true },
+                { name: "Message", value: formData.message },
+              ],
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        }),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
         toast({
-          title: "Success",
-          description: "Thank you for your inquiry! We'll get back to you soon.",
-        })
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          budget: '',
-          message: ''
+          variant: 'destructive',
+          title: 'Error',
+          description: `Submission failed: ${errorData.message || 'Unknown error'}`,
         });
-        setSelectedService(null);
       } else {
         toast({
-          variant: "destructive",
-          title: "Error",
-          description: "There was an error submitting your inquiry. Please try again.",
-        })
+          title: 'Success',
+          description: 'Thank you for your inquiry! We\'ll get back to you soon.',
+        });
+        setFormData({ name: '', email: '', company: '', budget: '', message: '' });
+        setSelectedService(null);
       }
     } catch (error) {
+      console.error('Submission Error:', error);
       toast({
-        variant: "destructive",
-        title: "Error",
-        description: "There was an error submitting your inquiry. Please try again.",
-      })
+        variant: 'destructive',
+        title: 'Error',
+        description: 'There was an error submitting your inquiry. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   };
+  
 
   return (
     <motion.main
@@ -250,7 +261,7 @@ export default function GetStartedHero() {
 
                 <div className="space-y-2">
                   <Input
-                    placeholder="Budget Range (Optional)"
+                    placeholder="Budget Range "
                     className="bg-gray-700 border-gray-600 text-white"
                     value={formData.budget}
                     onChange={(e) => setFormData({...formData, budget: e.target.value})}
