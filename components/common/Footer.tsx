@@ -34,7 +34,7 @@ const Footer = () => {
   const socialLinks = [
     { 
       name: 'Twitter', 
-      href: '#', 
+      href: 'https://x.com/', 
       icon: <div className="flex items-center justify-center w-8 h-8 rounded-full bg-zinc-900 hover:bg-zinc-800">
               <Twitter size={16} />
             </div>
