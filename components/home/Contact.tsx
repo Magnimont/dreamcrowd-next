@@ -161,17 +161,19 @@ export default function ContactForm() {
 
               <div className="absolute inset-[1px] bg-black rounded-[inherit]" />
 
-              <CardContent className="relative space-y-6 p-6">
-  <a
-    href="https://calendly.com/magnimont/30min"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-full bg-transparent hover:bg-transparent text-white group-hover:scale-[1.02] transition-transform duration-500 ease-out flex items-center justify-center py-2"
-  >
-    BOOK US FOR CONSULTATION{" "}
-    <ArrowUpRight className="inline ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
-  </a>
-</CardContent>
+              <a
+                href="https://calendly.com/magnimont/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full"
+              >
+                <CardContent className="relative space-y-6 p-6">
+                  <div className="w-full bg-transparent hover:bg-transparent text-white group-hover:scale-[1.02] transition-transform duration-500 ease-out flex items-center justify-center py-2">
+                    BOOK US FOR CONSULTATION{" "}
+                    <ArrowUpRight className="inline ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
+                  </div>
+                </CardContent>
+              </a>
 
             </Card>
           </div>
