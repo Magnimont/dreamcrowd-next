@@ -113,43 +113,47 @@ export default function ContactForm() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <Button
-                  variant="ghost"
-                  className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
-                hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
-                hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
-                text-white transition-all duration-500 ease-out transform"
-                >
-                  <span className="flex items-center text-xl">
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/home/fiver.png"
-                      alt="Fiverr"
-                      className="w-6 h-6 mr-2"
-                    />
-                    Fiverr
-                  </span>
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
-                hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
-                hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
-                text-white transition-all duration-500 ease-out transform"
-                >
-                  <span className="flex items-center text-xl">
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/home/upwork.png"
-                      alt="Upwork"
-                      className="w-6 h-6 mr-2"
-                    />
-                    Upwork
-                  </span>
-                </Button>
-              </CardContent>
+  <a href="https://fiverr.com/" target="_blank" rel="noopener noreferrer">
+    <Button
+      variant="ghost"
+      className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
+      hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
+      hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
+      text-white transition-all duration-500 ease-out transform"
+    >
+      <span className="flex items-center text-xl">
+        <Image
+          width={30}
+          height={30}
+          src="/home/fiver.png"
+          alt="Fiverr"
+          className="w-6 h-6 mr-2"
+        />
+        Fiverr
+      </span>
+    </Button>
+  </a><div className="py-0.1"></div>
+  <a href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer">
+    <Button
+      variant="ghost"
+      className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
+      hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
+      hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
+      text-white transition-all duration-500 ease-out transform"
+    >
+      <span className="flex items-center text-xl">
+        <Image
+          width={30}
+          height={30}
+          src="/home/upwork.png"
+          alt="Upwork"
+          className="w-6 h-6 mr-2"
+        />
+        Upwork
+      </span>
+    </Button>
+  </a>
+</CardContent> 
             </Card>
 
             <Card className="bg-transparent border-none relative overflow-hidden py-16 group hover:transform hover:scale-[1.02] transition-all duration-500 ease-out">

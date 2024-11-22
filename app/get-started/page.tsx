@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { ChevronRight, Code, Rocket, Globe, Cpu, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast"
-import FluidCursor from '@/components/ui/fluid-cursor'; // FluidCursor Deprecated
+import Confetti from 'react-confetti';
 
 type Service = {
   icon: JSX.Element;
@@ -25,9 +25,10 @@ type FormData = {
 };
 
 export default function GetStartedHero() {
-  const { toast } = useToast()
+  const { toast } = useToast();
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false); // Confetti state
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -57,11 +58,9 @@ export default function GetStartedHero() {
     }
   ];
 
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-     // Validate form fields
-     if (!selectedService) {
+    if (!selectedService) {
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -102,7 +101,7 @@ export default function GetStartedHero() {
       return;
     }
     setIsSubmitting(true);
-  
+
     try {
       const response = await fetch('/api/send-discord-webhook', {
         method: 'POST',
@@ -113,7 +112,7 @@ export default function GetStartedHero() {
               title: "New Project Inquiry",
               color: 0x0099ff,
               fields: [
-                { name: "Service Requested", value: selectedService?.title , inline: true },
+                { name: "Service Requested", value: selectedService?.title, inline: true },
                 { name: "Client Name", value: formData.name, inline: true },
                 { name: "Email", value: formData.email, inline: true },
                 { name: "Company", value: formData.company || "Not specified", inline: true },
@@ -125,7 +124,7 @@ export default function GetStartedHero() {
           ],
         }),
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         toast({
@@ -140,6 +139,10 @@ export default function GetStartedHero() {
         });
         setFormData({ name: '', email: '', company: '', budget: '', message: '' });
         setSelectedService(null);
+
+        // Show confetti
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 6000);
       }
     } catch (error) {
       console.error('Submission Error:', error);
@@ -152,7 +155,6 @@ export default function GetStartedHero() {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
     <motion.main
@@ -160,10 +162,9 @@ export default function GetStartedHero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* <FluidCursor /> Add the FluidCursor component */}
+      {showConfetti && <Confetti />}
       <div className="min-h-screen bg-black text-white">
         <div className="max-w-6xl mx-auto px-4 py-16">
-          {/* Hero Section */}
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -181,8 +182,6 @@ export default function GetStartedHero() {
               is here to build your next breakthrough solution.
             </p>
           </motion.div>
-
-          {/* Service Cards */}
           <motion.div 
             className="grid md:grid-cols-3 gap-6 mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -213,8 +212,6 @@ export default function GetStartedHero() {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Quotation Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -228,7 +225,6 @@ export default function GetStartedHero() {
                     ? `Request Quote for ${selectedService.title}`
                     : "Request a Quote"}
                 </h3>
-                
                 <div className="space-y-2">
                   <Input
                     placeholder="Your Name"
@@ -238,7 +234,6 @@ export default function GetStartedHero() {
                     required
                   />
                 </div>
-
                 <div className="space-y-2">
                   <Input
                     type="email"
@@ -249,7 +244,6 @@ export default function GetStartedHero() {
                     required
                   />
                 </div>
-
                 <div className="space-y-2">
                   <Input
                     placeholder="Company Name (Optional)"
@@ -258,42 +252,33 @@ export default function GetStartedHero() {
                     onChange={(e) => setFormData({...formData, company: e.target.value})}
                   />
                 </div>
-
                 <div className="space-y-2">
                   <Input
-                    placeholder="Budget Range "
+                    placeholder="Budget"
                     className="bg-gray-700 border-gray-600 text-white"
                     value={formData.budget}
                     onChange={(e) => setFormData({...formData, budget: e.target.value})}
+                    required
                   />
                 </div>
-
                 <div className="space-y-2">
                   <Textarea
-                    placeholder="Tell us about your project"
-                    className="bg-gray-700 border-gray-600 text-white min-h-[100px]"
+                    placeholder="Your Message"
+                    className="bg-gray-700 border-gray-600 text-white"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
                   />
                 </div>
-
                 <Button 
                   type="submit"
+                  className="w-full bg-blue-500 text-white"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white"
                 >
-                  {isSubmitting ? (
-                    <div className="flex items-center">
-                      <div className="animate-spin mr-2">⌛</div>
-                      Sending...
-                    </div>
-                  ) : (
-                    <div className="flex items-center">
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Inquiry
-                    </div>
-                  )}
+                  {isSubmitting ? "Submitting..." : <>
+                    Send Message
+                    <Send className="w-4 h-4 ml-2" />
+                  </>}
                 </Button>
               </form>
             </Card>
