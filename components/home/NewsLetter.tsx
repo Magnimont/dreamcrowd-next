@@ -84,35 +84,37 @@ export default function NewsLetter() {
           delivered straight to your inbox. Join innovators who lead the future.
         </p>
 
-        <div className="relative group ">
-          <div className="absolute -inset-1 bg-gradient-to-br from-[#1a237e] via-[#4a90e2] to-[#82b1ff] rounded-full opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
+        <div className="relative group">
+  <div
+    className="absolute -inset-1 bg-gradient-to-br from-[#1a237e] via-[#4a90e2] to-[#82b1ff] rounded-full opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500 md:block hidden"
+  />
+  <form
+    onSubmit={handleSubmit}
+    className="relative flex flex-col sm:flex-row gap-4 bg-[#030303] p-2 rounded-full"
+  >
+    <Input
+      type="email"
+      placeholder="Your email address"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      className="flex-grow bg-[#1a237e]/30 py-8 px-6 rounded-full border-gray-700 
+        text-white placeholder-gray-400 focus:border-[#4a90e2] focus:ring-1 
+        focus:ring-[#4a90e2] transition-all duration-300"
+      required
+      disabled={loading || isSubscribed}
+    />
+    <Button
+      type="submit"
+      className="bg-gradient-to-br from-[#1a237e] via-[#4a90e2] to-[#82b1ff] 
+        text-white font-medium px-8 py-8 rounded-full hover:scale-[1.02] 
+        hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-500"
+      disabled={loading || isSubscribed}
+    >
+      {loading ? "Subscribing..." : isSubscribed ? "Subscribed" : "Subscribe"}
+    </Button>
+  </form>
+</div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="relative flex flex-col sm:flex-row gap-4 bg-[#030303] p-2 rounded-full"
-          >
-            <Input
-              type="email"
-              placeholder="Your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-grow bg-[#1a237e]/30 py-8 px-6 rounded-full border-gray-700 
-            text-white placeholder-gray-400 focus:border-[#4a90e2] focus:ring-1 
-            focus:ring-[#4a90e2] transition-all duration-300"
-              required
-              disabled={loading || isSubscribed}
-            />
-            <Button
-              type="submit"
-              className="bg-gradient-to-br from-[#1a237e] via-[#4a90e2] to-[#82b1ff] 
-            text-white font-medium px-8 py-8 rounded-full hover:scale-[1.02] 
-            hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-500"
-              disabled={loading || isSubscribed}
-            >
-              {loading ? "Subscribing..." : isSubscribed ? "Subscribed" : "Subscribe"}
-            </Button>
-          </form>
-        </div>
       </div>
     </div>
   );
