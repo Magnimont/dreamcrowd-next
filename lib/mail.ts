@@ -1,80 +1,72 @@
-"use server";
-import { ContactFormData } from "@/components/home/Contact";
-import { ContactSchema } from "@/schema";
-import { Resend } from "resend";
-import fs from 'fs';
-import path from 'path';
+import { Resend } from 'resend';
+import crypto from 'crypto';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FromEmail!!;
-const toEmail = process.env.ToEmail!!;
-export async function sendContactInfo(values: ContactFormData): Promise<{
-  success: boolean;
-  data?: any;
-}> {
-  try {
-    const data = ContactSchema.safeParse(values);
-    if (!data.success) {
-      return {
-        success: data.success,
-        data: data.error,
-      };
-    }
-    await sendContactMail(values);
-    return {
-      success: true,
-      data: "Success 🎉",
-    };
-  } catch (error) {
-    return {
-      success: false,
-      data: "unknown error!",
-    };
-  }
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('RESEND_API_KEY is not defined in environment variables');
 }
 
-const domain = process.env.NEXT_PUBLIC_APP_URL;
+if (!process.env.UNSUBSCRIBE_SECRET) {
+  throw new Error('UNSUBSCRIBE_SECRET is not defined in environment variables');
+}
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
+function generateUnsubscribeToken(email: string) {
+  return crypto
+    .createHash('sha256')
+    .update(`${email}${process.env.UNSUBSCRIBE_SECRET}`)
+    .digest('hex')
+}
 
-export const sendContactMail = async (data: ContactFormData) => {
-  const emailTemplatePath = path.join(process.cwd(), 'templates', 'contact-email.html');
-  let emailTemplate = fs.readFileSync(emailTemplatePath, 'utf-8');
-  
-  // Replace placeholders with actual data
-  emailTemplate = emailTemplate
-    .replace('${data.firstName}', data.firstName)
-    .replace('${data.lastName}', data.lastName)
-    .replace('${data.email}', data.email)
-    .replace('${subject}', `Contact - ${data.firstName} ${data.lastName}`)
-    .replace('${data.message}', data.message);  const mail = await resend.emails.send({
-    from: fromEmail,
-    to: toEmail,
-    subject: `Contact - ${data.firstName} ${data.lastName}`,
-    html: emailTemplate
-  });
+export async function sendNewsLetterMail(email: string) {
+  const unsubscribeToken = generateUnsubscribeToken(email)
+  const unsubscribeUrl = `$/unsubscribe?email=${email}&token=${unsubscribeToken}`
 
-  console.log(mail);
-};
-  export const sendNewsLetterMail = async (data: string) => {
-    const emailTemplatePath = path.join(process.cwd(), 'templates', 'news-letter.html');
-    let emailTemplate = fs.readFileSync(emailTemplatePath, 'utf-8');
-  
-    const currentDate = new Date().toLocaleDateString();
-    const currentTime = new Date().toLocaleTimeString();
-  
-    // Replace placeholders with actual data
-    emailTemplate = emailTemplate
-      .replace('{{data.email}}', data)
-      .replace('{{currentDate}}', currentDate)
-      .replace('{{currentTime}}', currentTime);
+  await resend.emails.send({
+    from: 'newsletter@yourdomain.com',
+    to: email,
+    subject: 'Welcome to Our Newsletter!',
+    html: `
+      <h1>Welcome to Our Newsletter!</h1>
+      <p>Thank you for subscribing to our newsletter.</p>
+      <p>To unsubscribe, <a href="${unsubscribeUrl}">click here</a></p>
+    `,
+  })
+}
 
-    const mail = await resend.emails.send({
-      from: fromEmail,
-      to: toEmail,
-      subject: `New Newsletter Subscription`,
-      html: emailTemplate
-    });
+interface ContactInfo {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+}
 
-    console.log(mail);
-  };
+export async function sendContactInfo(data: ContactInfo) {
+  await resend.emails.send({
+    from: 'contact@yourdomain.com',
+    to: 'support@yourdomain.com',
+    subject: 'New Contact Form Submission',
+    html: `
+      <h1>New Contact Form Submission</h1>
+      <h2>Contact Details:</h2>
+      <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
+      <p><strong>Email:</strong> ${data.email}</p>
+      <h2>Message:</h2>
+      <p>${data.message}</p>
+    `,
+  })
+
+  // Send confirmation email to the user
+  await resend.emails.send({
+    from: 'contact@yourdomain.com',
+    to: data.email,
+    subject: 'We received your message',
+    html: `
+      <h1>Thank you for contacting us!</h1>
+      <p>Dear ${data.firstName},</p>
+      <p>We have received your message and will get back to you as soon as possible.</p>
+      <p>Best regards,<br>Your Support Team</p>
+    `,
+  })
+}

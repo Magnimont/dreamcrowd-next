@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "npm run build && next start -p 2420",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:bot": "ts-node discord/bot.ts",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:bot\""
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
@@ -17,9 +19,12 @@
     "@radix-ui/react-toast": "^1.2.2",
     "@shadcn/ui": "^0.0.4",
     "@splinetool/react-spline": "^4.0.0",
+    "@upstash/redis": "^1.34.3",
     "build": "^0.1.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
     "framer-motion": "^11.11.10",
     "lucide-react": "^0.453.0",
     "mini-svg-data-uri": "^1.4.4",
@@ -29,19 +34,24 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
     "react-intersection-observer": "^9.13.1",
-    "resend": "^4.0.1-alpha.0",
+    "redis": "^4.7.0",
+    "resend": "^4.0.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.169.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.17.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
   }
 }

@@ -103,7 +103,7 @@ export default function GetStartedHero() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/send-discord-webhook', {
+      const response = await fetch('/api/get-started', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
