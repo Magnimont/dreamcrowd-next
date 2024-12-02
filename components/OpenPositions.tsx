@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const positions = [
   {
@@ -27,9 +28,11 @@ const OpenPositions = () => {
             whileHover={{ y: -8 }}
             className="bg-white rounded-lg overflow-hidden shadow-lg"
           >
-            <img
+             <Image
               src={position.image}
               alt={position.title}
+              width={500}
+              height={192}
               className="w-full h-48 object-cover"
             />
             <div className="p-6">
