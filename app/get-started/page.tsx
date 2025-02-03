@@ -42,19 +42,16 @@ export default function GetStartedHero() {
       icon: <Code className="w-6 h-6 text-blue-400" />,
       title: "Custom Software Development",
       description: "From web apps to enterprise solutions, we bring your vision to life",
-      rate: "Starting at $75/hour"
     },
     {
       icon: <Globe className="w-6 h-6 text-blue-400" />,
       title: "Web Development",
       description: "Responsive, modern websites and progressive web applications",
-      rate: "Starting at $20/hour"
     },
     {
       icon: <Cpu className="w-6 h-6 text-blue-400" />,
       title: "AI & Machine Learning",
       description: "Intelligent solutions for complex business problems",
-      rate: "Starting at $95/hour"
     }
   ];
 
