@@ -13,7 +13,6 @@ type Service = {
   icon: JSX.Element;
   title: string;
   description: string;
-  rate: string;
 };
 
 type FormData = {
@@ -98,7 +97,7 @@ export default function GetStartedHero() {
       return;
     }
     setIsSubmitting(true);
-
+  
     try {
       const response = await fetch('/api/get-started', {
         method: 'POST',
@@ -106,22 +105,27 @@ export default function GetStartedHero() {
         body: JSON.stringify({
           embeds: [
             {
-              title: "New Project Inquiry",
+              title: "🚀 New Project Inquiry",
+              description: "A new project inquiry has been submitted.",
               color: 0x0099ff,
               fields: [
-                { name: "Service Requested", value: selectedService?.title, inline: true },
-                { name: "Client Name", value: formData.name, inline: true },
-                { name: "Email", value: formData.email, inline: true },
-                { name: "Company", value: formData.company || "Not specified", inline: true },
-                { name: "Budget", value: formData.budget, inline: true },
-                { name: "Message", value: formData.message },
+                { name: "🔧 Service Requested", value: selectedService?.title || "Not specified", inline: false },
+                { name: "👤 Client Name", value: formData.name, inline: false },
+                { name: "📧 Email", value: formData.email, inline: false },
+                { name: "🏢 Company", value: formData.company || "Not specified", inline: false },
+                { name: "💰 Budget", value: formData.budget, inline: false },
+                { name: "📝 Message", value: formData.message, inline: false },
               ],
+              footer: {
+                text: "Magnimont",
+                icon_url: "https://www.magnimont.com/images/logo.png", // Replace with your logo URL
+              },
               timestamp: new Date().toISOString(),
             },
           ],
         }),
       });
-
+  
       if (!response.ok) {
         const errorData = await response.json();
         toast({
@@ -136,7 +140,7 @@ export default function GetStartedHero() {
         });
         setFormData({ name: '', email: '', company: '', budget: '', message: '' });
         setSelectedService(null);
-
+  
         // Show confetti
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 6000);
@@ -203,7 +207,7 @@ export default function GetStartedHero() {
                     </div>
                     <h3 className="text-xl font-semibold text-white">{service.title}</h3>
                     <p className="text-gray-400">{service.description}</p>
-                    <p className="text-blue-400 font-medium">{service.rate}</p>
+                    
                   </div>
                 </Card>
               </motion.div>

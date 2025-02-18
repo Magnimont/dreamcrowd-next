@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
-import { sendContactInfo as sendContactInfoFromLib } from "@/lib/mail";
 
 export interface ContactFormData {
   firstName: string;
@@ -17,11 +16,42 @@ export interface ContactFormData {
 }
 
 export async function sendContactInfoFromComponent(formData: ContactFormData): Promise<{ success: boolean; data?: string }> {
+  try {
+    const response = await fetch('/api/get-started', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        embeds: [
+          {
+            title: "🚀 New Contact Form Submission",
+            description: "A new contact form submission has been received.",
+            color: 0x0099ff,
+            fields: [
+              { name: "👤 First Name", value: formData.firstName },
+              { name: "👤 Last Name", value: formData.lastName },
+              { name: "📧 Email", value: formData.email },
+              { name: "📝 Message", value: formData.message },
+            ],
+            footer: {
+              text: "Magnimont",
+              icon_url: "https://www.magnimont.com/images/logo.png", // Replace with your logo URL
+            },
+            timestamp: new Date().toISOString(),
+          },
+        ],
+      }),
+    });
 
-  //  existing implementation
+    if (!response.ok) {
+      const error = await response.text();
+      return { success: false, data: `Discord API Error: ${error}` };
+    }
 
-  return { success: true, data: "Your message has been sent successfully!" }; // Example return value
-
+    return { success: true, data: "Your message has been sent successfully!" };
+  } catch (error) {
+    console.error("Error sending contact info:", error);
+    return { success: false, data: "There was an error sending your message. Please try again." };
+  }
 }
 
 export default function ContactForm() {
@@ -35,6 +65,7 @@ export default function ContactForm() {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   const [disabled, setDisable] = useState(false);
+
   const updateGreeting = () => {
     const now = new Date();
     const hour = now.getHours();
@@ -85,20 +116,13 @@ export default function ContactForm() {
         toast({
           variant: "destructive",
           title: "Error",
-          description:
-            "There was an error submitting your inquiry. Please try again.",
+          description: data.data,
         });
-      } else if (data.success) {
+      } else {
         setDisable(true);
         toast({
           title: "Success",
           description: data.data,
-        });
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: "Unknown error occurred!",
         });
       }
     });
@@ -121,47 +145,48 @@ export default function ContactForm() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-  <a href="https://fiverr.com/" target="_blank" rel="noopener noreferrer">
-    <Button
-      variant="ghost"
-      className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
-      hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
-      hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
-      text-white transition-all duration-500 ease-out transform"
-    >
-      <span className="flex items-center text-xl">
-        <Image
-          width={30}
-          height={30}
-          src="/home/fiver.png"
-          alt="Fiverr"
-          className="w-6 h-6 mr-2"
-        />
-        Fiverr
-      </span>
-    </Button>
-  </a><div className="py-0.1"></div>
-  <a href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer">
-    <Button
-      variant="ghost"
-      className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
-      hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
-      hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
-      text-white transition-all duration-500 ease-out transform"
-    >
-      <span className="flex items-center text-xl">
-        <Image
-          width={30}
-          height={30}
-          src="/home/upwork.png"
-          alt="Upwork"
-          className="w-6 h-6 mr-2"
-        />
-        Upwork
-      </span>
-    </Button>
-  </a>
-</CardContent> 
+                <a href="https://fiverr.com/" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="ghost"
+                    className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
+                    hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
+                    hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
+                    text-white transition-all duration-500 ease-out transform"
+                  >
+                    <span className="flex items-center text-xl">
+                      <Image
+                        width={30}
+                        height={30}
+                        src="/home/fiver.png"
+                        alt="Fiverr"
+                        className="w-6 h-6 mr-2"
+                      />
+                      Fiverr
+                    </span>
+                  </Button>
+                </a>
+                <div className="py-0.1"></div>
+                <a href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="ghost"
+                    className="w-full py-8 rounded-lg text-center bg-[#1a237e]/30 
+                    hover:bg-gradient-to-br hover:from-[#1a237e] hover:via-[#4a90e2] hover:to-[#82b1ff] 
+                    hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20
+                    text-white transition-all duration-500 ease-out transform"
+                  >
+                    <span className="flex items-center text-xl">
+                      <Image
+                        width={30}
+                        height={30}
+                        src="/home/upwork.png"
+                        alt="Upwork"
+                        className="w-6 h-6 mr-2"
+                      />
+                      Upwork
+                    </span>
+                  </Button>
+                </a>
+              </CardContent>
             </Card>
 
             <Card className="bg-transparent border-none relative overflow-hidden py-16 group hover:transform hover:scale-[1.02] transition-all duration-500 ease-out">
