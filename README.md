@@ -4,7 +4,7 @@
 # Magnimont
 
 **Magnimont** is a digital agency specializing in custom web development, AI solutions, and tailored software for businesses across various industries. We focus on creating cutting-edge websites, intelligent chatbots, Discord bots, and custom applications to help companies grow and deliver exceptional digital experiences.
-
+ 
 ## Table of Contents
 
 - [Features](#features)
