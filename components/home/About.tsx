@@ -127,7 +127,7 @@ Magnimont is your strategic partner in digital transformation. We blend cutting-
                 "relative overflow-hidden"
               )}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#130C5E] via-[#5FABE6] to-[#F0D1FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#555555] via-[#aaaaaa] to-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
               <p className="text-2xl md:text-3xl font-bold mb-2 relative z-10">
                 {stat.value}
               </p>

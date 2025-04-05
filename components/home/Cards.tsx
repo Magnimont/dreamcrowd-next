@@ -45,7 +45,7 @@ export default function Cards() {
           "bg-[#030303] relative overflow-hidden group"
         )}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#130C5E] via-[#5FABE6] to-[#F0D1FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#555555] via-[#aaaaaa] to-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
         <div className="relative z-10 p-8">
           <div className="max-w-xs">
             <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-bold tracking-[-0.015em] text-white">
@@ -66,7 +66,7 @@ export default function Cards() {
           "bg-[#030303] relative overflow-hidden group"
         )}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#130C5E] via-[#5FABE6] to-[#F0D1FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#555555] via-[#aaaaaa] to-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
         <div className="relative z-10 p-8">
           <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-bold tracking-[-0.015em] text-white">
             Tech Treasures
@@ -85,7 +85,7 @@ export default function Cards() {
           "bg-[#030303] relative overflow-hidden group"
         )}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#130C5E] via-[#5FABE6] to-[#F0D1FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#555555] via-[#aaaaaa] to-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
         <div className="relative z-10 p-8">
           <div className="max-w-sm">
             <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-bold tracking-[-0.015em] text-white">
