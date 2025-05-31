@@ -95,8 +95,11 @@ export default function NavbarComponent() {
             <div className="h-full flex flex-col">
               <div className="flex justify-between items-center p-6 border-b border-white/[0.08]">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <span className="text-xl font-semibold font-calsans text-white">
 =======
+=======
+>>>>>>> Stashed changes
                 <span 
                   className="text-xl font-semibold"
                   style={{
@@ -104,6 +107,9 @@ export default function NavbarComponent() {
                     fontFamily: 'Calsans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
                   }}
                 >
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                   Magnimont
                 </span>
