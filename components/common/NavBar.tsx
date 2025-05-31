@@ -21,7 +21,6 @@ export default function NavbarComponent() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Array of mobile menu items (can be different if needed)
   const mobileMenuItems = [
     { href: "/", text: "Home" },
     { href: "/#about", text: "About" },
@@ -54,7 +53,7 @@ export default function NavbarComponent() {
             before:absolute before:w-full before:h-full before:bg-gradient-to-b before:from-white/[0.08] before:to-white/[0.02]`}
         ></div>
 
-        {/* Logo */}
+        {/* Logo - FIXED VERSION */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,7 +67,14 @@ export default function NavbarComponent() {
               src="/images/logo.png"
               alt="Magnimont Logo"
             />
-            <span className="self-center whitespace-nowrap text-xl font-semibold font-calsans text-white ml-2">
+            <span 
+              className="self-center whitespace-nowrap text-xl font-semibold text-white ml-2 transition-all duration-300"
+              style={{
+                fontFamily: 'Calsans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+                fontFeatureSettings: '"kern" 1',
+                fontOpticalSizing: 'auto',
+              }}
+            >
               Magnimont
             </span>
           </Link>
@@ -88,7 +94,17 @@ export default function NavbarComponent() {
           >
             <div className="h-full flex flex-col">
               <div className="flex justify-between items-center p-6 border-b border-white/[0.08]">
+<<<<<<< Updated upstream
                 <span className="text-xl font-semibold font-calsans text-white">
+=======
+                <span 
+                  className="text-xl font-semibold"
+                  style={{
+                    ...gradientTextStyles,
+                    fontFamily: 'Calsans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+                  }}
+                >
+>>>>>>> Stashed changes
                   Magnimont
                 </span>
               </div>
