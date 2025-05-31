@@ -30,12 +30,12 @@ export default function NavbarComponent() {
   }, []);
 
   const mobileMenuItems = [
-    { href: "/", text: "Home" },
-    { href: "/#about", text: "About" },
-    { href: "/#services", text: "Services" },
-    { href: "/#portfolio", text: "Portfolio" },
-    { href: "/#testimonials", text: "Testimonials" },
-    { href: "/#faqs", text: "Faqs" },
+    // { href: "/", text: "Home" },
+    // { href: "/#about", text: "About" },
+    // { href: "/#services", text: "Services" },
+    // { href: "/#portfolio", text: "Portfolio" },
+    // { href: "/#testimonials", text: "Testimonials" },
+    // { href: "/#faqs", text: "Faqs" },
   ];
 
   return (
