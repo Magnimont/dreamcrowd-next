@@ -10,7 +10,7 @@ export default function NotFound() {
       </div>
 
       <h1 className="text-6xl font-bold text-green-800">404</h1>
-      <p className="text-xl text-green-700 font-medium">You look lost kid, let&apos;s get you back home</p>
+      <p className="text-xl text-green-700 font-medium">You look lost :P, let&apos;s get you back home</p>
       
       <div className="flex space-x-4">
         <Button 
