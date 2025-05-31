@@ -105,10 +105,16 @@ const Hero: React.FC = () => {
           animate="visible"
           className="lg:w-5/6 space-y-8 text-center lg:text-left"
         >
+
           <motion.header variants={itemVariants} className="mb-2 mt-8">
-            <button className="rounded-full p-[1px] bg-gradient-to-r to-blue-700 from-purple-600 transform transition-transform hover:scale-105 animate-shimmer">
-              <span className="bg-[#030303] flex flex-row gap-1 items-center justify-center text-xs md:text-sm rounded-full px-4 py-1.5 font-medium hover:bg-opacity-80 transition-colors">
-                Magnimont V2 <ChevronRight size={"16"} />
+            <button className="rounded-full p-[1px] transform transition-transform hover:scale-105 animate-shimmer" 
+              style={{
+                background: `linear-gradient(120deg, hsl(166deg 48% 37%) 0%, hsl(165deg 51% 33%) 9%, hsl(163deg 59% 28%) 18%, hsl(163deg 98% 19%) 26%, hsl(173deg 99% 24%) 35%, hsl(176deg 99% 28%) 43%, hsl(178deg 100% 31%) 52%, hsl(179deg 99% 31%) 60%, hsl(180deg 99% 32%) 68%,hsl(181deg 99% 33%) 76%, hsl(182deg 99% 27%) 84%, hsl(183deg 99% 20%) 92%, hsl(193deg 100% 9%) 100%)`
+              }}>
+              <span className="flex flex-row gap-1 items-center justify-center text-xs md:text-sm rounded-full px-4 py-1.5 font-medium transition-colors" 
+                style={{ backgroundColor: 'rgba(3, 3, 3, 0.8)' }}>
+                <span style={gradientTextStyles}>Magnimont V2</span> 
+                <span style={gradientTextStyles}>›</span>
               </span>
             </button>
           </motion.header>
@@ -125,6 +131,7 @@ const Hero: React.FC = () => {
               for Ventures
             </span>
           </motion.h1>
+
 
           <motion.p
             variants={itemVariants}
