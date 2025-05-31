@@ -277,7 +277,7 @@ const Expertises: FC = () => {
             </motion.div>
           ))}
         </motion.div>
-1000
+
      
       </div>
     </div>
