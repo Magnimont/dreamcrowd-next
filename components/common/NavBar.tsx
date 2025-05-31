@@ -94,7 +94,6 @@ export default function NavbarComponent() {
           </Link>
         </motion.div>
 
-
         {/* Mobile Menu Button */}
         <Sheet>
           <SheetTrigger asChild>
@@ -115,7 +114,13 @@ export default function NavbarComponent() {
           >
             <div className="h-full flex flex-col">
               <div className="flex justify-between items-center p-6 border-b border-white/[0.08]">
-                <span className="text-xl font-semibold font-calsans text-white">
+                <span 
+                  className="text-xl font-semibold"
+                  style={{
+                    ...gradientTextStyles,
+                    fontFamily: 'Calsans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+                  }}
+                >
                   Magnimont
                 </span>
               </div>
