@@ -16,22 +16,21 @@ const gradientTextStyles = {
 
 // Updated to use the purple gradient from Hero component
 const buttonGradientBg = `linear-gradient(
-  130deg,
-  hsl(270deg 73% 35%) 0%,
-  hsl(271deg 79% 28%) 14%,
-  hsl(272deg 89% 21%) 24%,
-  hsl(271deg 98% 15%) 32%,
-  hsl(272deg 75% 23%) 40%,
-  hsl(273deg 58% 37%) 47%,
-  hsl(273deg 53% 51%) 54%,
-  hsl(273deg 61% 55%) 60%,
-  hsl(272deg 56% 48%) 67%,
-  hsl(271deg 64% 40%) 73%,
-  hsl(270deg 74% 34%) 80%,
-  hsl(271deg 76% 30%) 86%,
-  hsl(271deg 80% 27%) 93%,
-  hsl(271deg 85% 23%) 100%
-)`;
+    140deg,
+    hsl(231deg 65% 65%) 0%,
+    hsl(236deg 46% 54%) 11%,
+    hsl(242deg 46% 43%) 20%,
+    hsl(249deg 68% 29%) 28%,
+    hsl(228deg 50% 44%) 36%,
+    hsl(219deg 55% 58%) 43%,
+    hsl(213deg 79% 74%) 50%,
+    hsl(216deg 81% 63%) 57%,
+    hsl(220deg 77% 54%) 64%,
+    hsl(236deg 64% 50%) 72%,
+    hsl(226deg 64% 43%) 81%,
+    hsl(224deg 45% 40%) 90%,
+    hsl(224deg 19% 37%) 100%
+  );`;
 
 export default function NavbarComponent() {
   const [hasScrolled, setHasScrolled] = useState(false);
