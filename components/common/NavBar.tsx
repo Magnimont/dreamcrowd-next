@@ -14,7 +14,24 @@ const gradientTextStyles = {
   WebkitTextFillColor: "transparent",
 }
 
-const buttonGradientBg = `linear-gradient(135deg, hsl(166deg 48% 37%) 0%, hsl(165deg 51% 33%) 15%, hsl(163deg 59% 28%) 30%, hsl(163deg 98% 19%) 45%, hsl(173deg 99% 24%) 60%, hsl(176deg 99% 28%) 75%, hsl(178deg 100% 31%) 90%, hsl(179deg 99% 31%) 100%)`;
+// Updated to use the purple gradient from Hero component
+const buttonGradientBg = `linear-gradient(
+  130deg,
+  hsl(270deg 73% 35%) 0%,
+  hsl(271deg 79% 28%) 14%,
+  hsl(272deg 89% 21%) 24%,
+  hsl(271deg 98% 15%) 32%,
+  hsl(272deg 75% 23%) 40%,
+  hsl(273deg 58% 37%) 47%,
+  hsl(273deg 53% 51%) 54%,
+  hsl(273deg 61% 55%) 60%,
+  hsl(272deg 56% 48%) 67%,
+  hsl(271deg 64% 40%) 73%,
+  hsl(270deg 74% 34%) 80%,
+  hsl(271deg 76% 30%) 86%,
+  hsl(271deg 80% 27%) 93%,
+  hsl(271deg 85% 23%) 100%
+)`;
 
 export default function NavbarComponent() {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -43,7 +60,7 @@ export default function NavbarComponent() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed w-screen z-50 top-0 left-0"
+      className="fixed w-screen z-[60] top-0 left-0"
     >
       <nav
         className={`max-w-screen-xl mx-auto flex justify-between items-center px-4 py-4 transition-all duration-300 ease-in-out after:opacity-100
