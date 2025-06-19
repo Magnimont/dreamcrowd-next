@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
   const onSplineLoad = (spline: Application): void => {
     setIsSplineLoaded(true);
     if (spline) {
-      spline.setZoom(0.4);
+      // spline.setZoom(0.4);
     }
   };
 
@@ -189,13 +189,14 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: isSplineLoaded ? 1 : 0 }}
             transition={{ duration: 0.5 }}
-            style={{ overflow: 'hidden' }}
-            className="max-h-[55rem] flex justify-center items-center overflow-hidden"
+            style={{ overflow: 'hidden', }}
+            className="max-h-[32rem] flex justify-center items-center overflow-hidden"
           >
             <Spline
               className="w-full flex items-center justify-center scale-90 sm:scale-100 pt-10"
-              style={{ overflow: "hidden", scale: 1.4 }}
-              scene="https://prod.spline.design/aPzfXqg0UWxqahgF/scene.splinecode"
+              style={{ overflow: "hidden", scale: 1.3 }}
+              // scene="https://prod.spline.design/aPzfXqg0UWxqahgF/scene.splinecode"
+              scene="https://draft.spline.design/3YlwBjSUZ5cAVMZx/scene.splinecode"
               onLoad={onSplineLoad}
             />
           </motion.div>
