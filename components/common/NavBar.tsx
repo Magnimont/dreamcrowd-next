@@ -16,21 +16,14 @@ const gradientTextStyles = {
 
 // Updated to use the purple gradient from Hero component
 const buttonGradientBg = `linear-gradient(
-    140deg,
-    hsl(231deg 65% 65%) 0%,
-    hsl(236deg 46% 54%) 11%,
-    hsl(242deg 46% 43%) 20%,
-    hsl(249deg 68% 29%) 28%,
-    hsl(228deg 50% 44%) 36%,
-    hsl(219deg 55% 58%) 43%,
-    hsl(213deg 79% 74%) 50%,
-    hsl(216deg 81% 63%) 57%,
-    hsl(220deg 77% 54%) 64%,
-    hsl(236deg 64% 50%) 72%,
-    hsl(226deg 64% 43%) 81%,
-    hsl(224deg 45% 40%) 90%,
-    hsl(224deg 19% 37%) 100%
-  );`;
+    310deg,
+    hsl(248deg 78% 31%) 0%,
+    hsl(243deg 73% 23%) 21%,
+    hsl(243deg 71% 15%) 44%,
+    hsl(251deg 65% 17%) 65%,
+    hsl(266deg 67% 29%) 84%,
+    hsl(280deg 80% 38%) 100%
+  )`;
 
 export default function NavbarComponent() {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -90,13 +83,13 @@ export default function NavbarComponent() {
           className="flex items-center"
         >
           <Link href="/" className="flex items-center group">
-            <Image
+            {/* <Image
               width={39}
               height={35}
               src="/images/logo.png"
               alt="Magnimont Logo"
               className="transition-transform duration-300 group-hover:scale-110"
-            />
+            /> */}
             <span 
               className="self-center whitespace-nowrap text-xl font-semibold text-white ml-2 transition-all duration-300"
               style={{
@@ -105,7 +98,7 @@ export default function NavbarComponent() {
                 fontOpticalSizing: 'auto',
               }}
             >
-              Magnimont
+              DreamCrowd
             </span>
           </Link>
         </motion.div>
@@ -137,7 +130,7 @@ export default function NavbarComponent() {
                     fontFamily: 'Calsans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
                   }}
                 >
-                  Magnimont
+                  DreamCrowd
                 </span>
               </div>
 
@@ -150,7 +143,7 @@ export default function NavbarComponent() {
                         className="w-full text-black font-medium border-0 hover:scale-105 transition-all duration-300 relative overflow-hidden"
                         style={{ background: buttonGradientBg }}
                       >
-                        <span className="relative z-10 flex items-center justify-center">
+                        <span className="relative text-white z-10 flex items-center justify-center">
                           Get Started <span style={{ marginLeft: '8px' }}>›</span>
                         </span>
                       </Button>
@@ -220,7 +213,7 @@ export default function NavbarComponent() {
               className="rounded-full font-medium text-black border-0 hover:scale-105 transition-all duration-300 relative overflow-hidden group px-6"
               style={{ background: buttonGradientBg }}
             >
-              <span className="relative z-10 flex items-center">
+              <span className="relative text-white z-10 flex items-center">
                 Get Started 
                 <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">›</span>
               </span>

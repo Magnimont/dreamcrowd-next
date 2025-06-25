@@ -24,9 +24,25 @@ const gradientTextStyles = {
     hsl(226deg 64% 43%) 81%,
     hsl(224deg 45% 40%) 90%,
     hsl(224deg 19% 37%) 100%
-  );`,
+  )`,
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
+}
+
+const theme = {
+  bg: `linear-gradient(
+    130deg,
+    hsl(237deg 86% 86%) 0%,
+    hsl(234deg 86% 87%) 7%,
+    hsl(231deg 84% 88%) 15%,
+    hsl(228deg 81% 90%) 25%,
+    hsl(226deg 76% 91%) 36%,
+    hsl(226deg 73% 91%) 49%,
+    hsl(228deg 74% 90%) 62%,
+    hsl(230deg 73% 89%) 76%,
+    hsl(233deg 73% 88%) 89%,
+    hsl(236deg 71% 88%) 100%
+  )`
 }
 
 const Hero: React.FC = () => {
@@ -52,7 +68,7 @@ const Hero: React.FC = () => {
 
 
   useEffect(() => {
-      setShow3DAsset(windowWidth > 1050);
+      setShow3DAsset(windowWidth > 200);
   }, [windowWidth]);
 
   const containerVariants = {
@@ -107,57 +123,54 @@ const Hero: React.FC = () => {
   const onSplineLoad = (spline: Application): void => {
     setIsSplineLoaded(true);
     if (spline) {
-      // spline.setZoom(0.4);
+      // spline.setZoom(2);
     }
   };
 
   return (
-    <div className="min-h-[40rem] max-w-screen-2xl mx-auto text-white p-6 md:p-12 flex flex-col">
-      <main className="flex-grow flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter max-h-[50rem]">
+    <div className="min-h-[100dvh] mx-auto text-white p-6 md:p-12 flex flex-col relative" style={{ overflow: 'hidden' }}>
+      <main
+        style={{ width: '100dvw', display: 'flex', flexDirection: 'column', alignItems: 'center', overflow: 'hidden' }}
+        className="flex-grow flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-24 font-inter max-h-[50rem]">
         {/* Content Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="lg:w-5/6 space-y-8 text-center lg:text-left"
+          style={{ zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          className="lg:w-5/6 space-y-8 text-center"
         >
 
-          <motion.header variants={itemVariants} className="mb-2 mt-8">
+          {/* <motion.header variants={itemVariants} className="mb-2 mt-8">
             <button className="rounded-full p-[1px] transform transition-transform hover:scale-105 animate-shimmer" 
               style={{
                 background: gradientTextStyles.background,
               }}>
               <span className="flex flex-row gap-1 items-center justify-center text-xs md:text-sm rounded-full px-4 py-1.5 font-medium transition-colors" 
                 style={{ backgroundColor: 'rgba(3, 3, 3, 0.8)' }}>
-                <span style={gradientTextStyles}>Magnimont V2</span> 
+                <span style={gradientTextStyles}>DreamCrowd</span> 
                 <span style={gradientTextStyles}>›</span>
               </span>
             </button>
-          </motion.header>
+          </motion.header> */}
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-6xl lg:text-8xl font-medium leading-tight"
-          >
-            <span>
-              Customizable Gateway UI
-            </span>
-            <br />
-            <span style={gradientTextStyles}>
-              for Ventures
-            </span>
+            className="text-5xl md:text-6xl lg:text-8xl font-medium leading-tight mt-20"
+          >Where Dreams Meet Capital
           </motion.h1>
 
 
-          <motion.p
+            <motion.p
             variants={itemVariants}
-            className="text-gray-400 mx-auto lg:mx-0 max-w-lg text-sm md:text-base leading-relaxed"
-          >
-            At Magnimont, we blend innovation with expertise to create tailored
+            style={{ maxWidth: '85%' }}
+            className="text-gray-300 mx-auto text-xl md:text-2xl leading-relaxed"
+            >
+            At DreamCrowd, we blend innovation with expertise to create tailored
             tech solutions that drive your business forward. From digital
             transformation to scalable growth, we&apos;re your partner in
             progress.
-          </motion.p>
+            </motion.p>
 
           <motion.div
             variants={itemVariants}
@@ -180,7 +193,10 @@ const Hero: React.FC = () => {
         </motion.div>
 
         {/* Hero Media Section */}
-        {show3DAsset && <div className="w-full lg:w-4/4 flex items-center justify-center relative pt-32 lg:pt-0">
+        {show3DAsset && 
+        <div 
+          style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: '-110%', scale: 1.5, overflow: 'hidden', filter: 'brightness(0.9)' }}
+          className="w-full flex items-center justify-center relative pt-32 lg:pt-0">
           <AnimatePresence>
             {!isSplineLoaded && <LoadingAnimation />}
           </AnimatePresence>
@@ -189,14 +205,14 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: isSplineLoaded ? 1 : 0 }}
             transition={{ duration: 0.5 }}
-            style={{ overflow: 'hidden', }}
-            className="max-h-[32rem] flex justify-center items-center overflow-hidden"
+            style={{ overflow: 'hidden' }}
+            className="w-100 min-h-100dvh flex justify-center items-center"
           >
             <Spline
-              className="w-full flex items-center justify-center scale-90 sm:scale-100 pt-10"
-              style={{ overflow: "hidden", scale: 1.3 }}
-              // scene="https://prod.spline.design/aPzfXqg0UWxqahgF/scene.splinecode"
-              scene="https://draft.spline.design/3YlwBjSUZ5cAVMZx/scene.splinecode"
+              className="w-full h-full flex items-center justify-center scale-90 sm:scale-100 pt-10"
+              style={{ overflow: "hidden" }}
+              scene="https://prod.spline.design/Jqebk5VLcSqfAdDB/scene.splinecode"
+              // scene="https://prod.spline.design/3sSK3WiA8vNrX6SE/scene.splinecode"
               onLoad={onSplineLoad}
             />
           </motion.div>
